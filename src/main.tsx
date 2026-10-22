@@ -5,6 +5,8 @@ import { installDevHooks } from './app/devHooks';
 import { injectTokens } from './design/injectTokens';
 import './design/global.css';
 
+// Auch dann gesetzt, wenn ein Host (z. B. der Artifact-Rahmen) das eigene <html>-Element liefert.
+document.documentElement.lang = 'ru';
 injectTokens();
 installDevHooks();
 

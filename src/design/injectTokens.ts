@@ -5,7 +5,9 @@ const kebab = (s: string) => s.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase());
 export function tokensToCss(): string {
   const themes = (Object.keys(colors) as ThemeName[]).map((theme) => {
     const vars = colorTokenNames.map((name) => `  --${kebab(name)}: ${colors[theme][name]};`).join('\n');
-    return `[data-theme="${theme}"] {\n${vars}\n  color-scheme: ${theme === 'light' ? 'light' : 'dark'};\n}`;
+    // Helle Werte gelten auch auf :root, damit der Hintergrund stimmt, bevor die App ein Theme setzt.
+    const selector = theme === 'light' ? `:root, [data-theme="light"]` : `[data-theme="${theme}"]`;
+    return `${selector} {\n${vars}\n  color-scheme: ${theme === 'light' ? 'light' : 'dark'};\n}`;
   });
 
   const rootVars = [

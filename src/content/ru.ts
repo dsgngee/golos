@@ -36,7 +36,7 @@ export const typeFilterLabel: Record<RecordingType | 'all', string> = {
 };
 
 export const t = {
-  appTitle: 'golos — прототип',
+  appTitle: 'golos',
   tabs: {
     label: 'Разделы',
     library: 'Библиотека',

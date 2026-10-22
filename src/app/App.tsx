@@ -28,7 +28,8 @@ export default function App() {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
-  if (hash === '#/styleguide') {
+  // Einfacher Anker (#styleguide) funktioniert auch als Deep-Link aus dem Artifact; #/styleguide bleibt gültig.
+  if (hash === '#styleguide' || hash === '#/styleguide') {
     return (
       <div data-testid="app-root" data-theme={theme} className={styles.root}>
         <Styleguide />

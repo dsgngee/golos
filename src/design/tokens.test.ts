@@ -24,3 +24,7 @@ test('tokensToCss emits every theme and token', () => {
   expect(css).toContain('--accent-text-on-inverse: #BF360E');
   expect(css).toContain("--font-mono: 'JetBrains Mono'");
 });
+
+test('light tokens also apply on bare :root before any theme is set', () => {
+  expect(tokensToCss()).toMatch(/:root,\s*\[data-theme="light"\]\s*\{/);
+});

@@ -1,9 +1,8 @@
+/* Auf dem Telefon: volle Höhe des Elternelements. Safe Areas polstert die Umgebung (Artifact-Rahmen bzw. Safari). */
 .full {
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: env(safe-area-inset-top);
   background: var(--bg);
   color: var(--ink);
 }

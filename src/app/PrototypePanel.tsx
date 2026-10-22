@@ -6,7 +6,7 @@ export function PrototypePanel() {
   return (
     <div className={styles.panel}>
       <PrototypeMenu />
-      <a className={styles.link} href="#/styleguide">
+      <a className={styles.link} href="#styleguide">
         Styleguide
       </a>
     </div>
