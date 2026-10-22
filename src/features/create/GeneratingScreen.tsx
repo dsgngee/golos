@@ -51,7 +51,19 @@ export function GeneratingScreen({ params }: ScreenProps) {
           {t.create.listen}
         </Button>
       )}
-      <Button variant="outline" onClick={toLibrary}>
+      {done && (
+        <Button
+          variant="outline"
+          onClick={() => {
+            useDraft.getState().resetDraft();
+            useNav.getState().popToRoot('create');
+            useNav.setState({ tab: 'create' });
+          }}
+        >
+          {t.create.another}
+        </Button>
+      )}
+      <Button variant={done ? 'plain' : 'outline'} onClick={toLibrary}>
         {t.create.toLibrary}
       </Button>
     </div>

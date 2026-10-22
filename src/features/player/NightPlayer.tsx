@@ -32,7 +32,9 @@ export function NightPlayer() {
 
       <div className={styles.timer}>
         <p className={styles.timerLabel}>{t.player.sleepTitle}</p>
-        <p className={styles.timerValue}>{remaining !== null ? formatClock(remaining / 1000) : t.night.timerOff}</p>
+        <p className={`${styles.timerValue} ${p.sleep.option === 'chapterEnd' ? styles.timerText : ''}`}>
+          {remaining !== null ? formatClock(remaining / 1000) : p.sleep.option === 'chapterEnd' ? t.player.chapterEnd : t.night.timerOff}
+        </p>
         {remaining !== null && remaining < FADE_MS && <p className={styles.fading}>{t.night.fading}</p>}
         <div className={styles.chips}>
           {QUICK.map((o) => (

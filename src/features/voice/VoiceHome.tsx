@@ -3,12 +3,12 @@ import { useNav } from '../../app/navigation';
 import { styleName, t } from '../../content/ru';
 import { sessions } from '../../data/sessions';
 import type { ReadingStyle } from '../../data/types';
-import { formatDay } from '../../i18n/format';
 import { useVoice } from '../../store/voice';
 import { Button } from '../../ui/Button';
 import { Icon } from '../../ui/icons';
 import { PlayButton } from '../../ui/PlayButton';
 import styles from './voice.module.css';
+import { VoiceCard } from './VoiceCard';
 
 const STYLE_SAMPLE_MS = 10_000;
 const STYLES: ReadingStyle[] = ['normal', 'expressive', 'calm'];
@@ -50,16 +50,7 @@ export function VoiceHome() {
           </Button>
         </section>
       ) : (
-        <section className={styles.card}>
-          <p className={styles.cardTitle}>{t.voice.yourVoice(v.quality)}</p>
-          <div className={styles.quality} role="progressbar" aria-label={t.voice.quality} aria-valuemin={0} aria-valuemax={100} aria-valuenow={v.quality}>
-            <span style={{ width: `${v.quality}%` }} />
-          </div>
-          <div className={styles.cardMeta}>
-            <span>{t.voice.recorded(v.minutes)}</span>
-            {v.updatedAt && <span>{t.voice.updated(formatDay(new Date(v.updatedAt), new Date()))}</span>}
-          </div>
-        </section>
+        <VoiceCard quality={v.quality} minutes={v.minutes} updatedAt={v.updatedAt} />
       )}
 
       {v.status === 'ready' && (

@@ -20,9 +20,11 @@ export function OnboardingFlow() {
     s.setSetupStep('sample');
   }, []);
 
+  // Nur den Tab setzen, ohne den Stack zurückzusetzen: Wer die Einrichtung aus dem Vertonen-Ablauf
+  // gestartet hat, landet wieder auf seinem Parameter-Screen, der Entwurf bleibt erhalten.
   const leave = (tab: 'library' | 'create') => {
     useVoice.getState().completeOnboarding();
-    useNav.getState().switchTab(tab);
+    useNav.setState({ tab });
   };
 
   switch (step) {

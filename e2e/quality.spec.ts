@@ -33,6 +33,18 @@ for (const s of screensToCheck) {
     );
     expect(small, 'Touch-Ziele unter 44 px').toEqual([]);
 
+    // Offene Sheets müssen oben liegen: Der Mittelpunkt jedes Sheets trifft das Sheet selbst.
+    const covered = await page.evaluate(() =>
+      [...document.querySelectorAll<HTMLElement>('#overlay-root [role=dialog]')]
+        .filter((d) => {
+          const r = d.getBoundingClientRect();
+          const hit = document.elementFromPoint(r.left + r.width / 2, r.top + Math.min(r.height / 2, 40));
+          return !hit || !d.contains(hit);
+        })
+        .map((d) => d.getAttribute('aria-label') ?? 'dialog'),
+    );
+    expect(covered, 'verdeckte Sheets').toEqual([]);
+
     // [data-decor] = rein dekorative Listennummern („01“), laut Spec 4.1 bewusst 3 : 1 (Token `decor`).
     const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).exclude('[data-decor]').analyze();
     expect(

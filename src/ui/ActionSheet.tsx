@@ -14,11 +14,12 @@ interface Props {
   title?: string;
   message?: string;
   actions: SheetAction[];
+  inline?: boolean;
 }
 
-export function ActionSheet({ open, onClose, title, message, actions }: Props) {
+export function ActionSheet({ open, onClose, title, message, actions, inline }: Props) {
   return (
-    <Overlay open={open} onClose={onClose} label={title ?? message} variant="actions">
+    <Overlay open={open} onClose={onClose} label={title ?? message} variant="actions" inline={inline}>
       <div className={styles.group}>
         {(title || message) && (
           <div className={styles.head}>

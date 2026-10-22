@@ -58,6 +58,13 @@
   line-height: 1;
 }
 
+.timerText {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .fading {
   font-size: 13px;
   color: var(--accent-text);

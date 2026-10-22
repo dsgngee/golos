@@ -12,9 +12,10 @@ interface Props {
   onClose(): void;
   value: string | null;
   onChange(folderId: string | null): void;
+  inline?: boolean;
 }
 
-export function FolderPicker({ open, onClose, value, onChange }: Props) {
+export function FolderPicker({ open, onClose, value, onChange, inline }: Props) {
   const folders = useLibrary((s) => s.folders);
   const [creating, setCreating] = useState(false);
   const [name, setName] = useState('');
@@ -38,7 +39,7 @@ export function FolderPicker({ open, onClose, value, onChange }: Props) {
   };
 
   return (
-    <Sheet open={open} onClose={onClose} title={t.folder.label}>
+    <Sheet open={open} onClose={onClose} title={t.folder.label} inline={inline}>
       <div className={styles.list}>
         {[{ id: null as string | null, name: t.folder.none }, ...folders].map((f) => (
           <button key={f.id ?? 'none'} className={styles.option} aria-pressed={value === f.id} onClick={() => pick(f.id)}>

@@ -18,9 +18,25 @@ import { SkipButton } from '../../ui/SkipButton';
 import { TabBar } from '../../ui/TabBar';
 import { TextField } from '../../ui/TextField';
 import { Toggle } from '../../ui/Toggle';
+import { phrases } from '../../data/phrases';
+import { RATES, type Cover as CoverData } from '../../data/types';
+import { formatRate } from '../../i18n/format';
 import { usePlayer } from '../../store/player';
+import { ActionSheet } from '../../ui/ActionSheet';
+import { BannerView } from '../../ui/Banner';
+import { ICON_NAMES, Icon } from '../../ui/icons';
+import { Sheet } from '../../ui/Sheet';
 import { ContinueCard } from '../library/ContinueCard';
+import { CoverPicker } from '../library/CoverPicker';
+import { FolderPicker } from '../library/FolderPicker';
+import { TagEditor } from '../library/TagEditor';
+import { VoiceMissingRow } from '../library/VoiceMissingRow';
+import { FullPlayer } from '../player/FullPlayer';
+import { MiniPlayer } from '../player/MiniPlayer';
 import { NightPlayer } from '../player/NightPlayer';
+import { LevelMeter } from '../voice/LevelMeter';
+import { Recorder } from '../voice/Recorder';
+import { VoiceCard } from '../voice/VoiceCard';
 import styles from './Styleguide.module.css';
 
 // Beschriftungen auf Deutsch (für Designer und Entwickler), Beispielinhalte russisch.
@@ -29,6 +45,8 @@ const themeNames: Record<ThemeName, string> = { light: 'Hell', dark: 'Dunkel', n
 const THEMES: ThemeName[] = ['light', 'dark', 'night'];
 const comma = (n: number) => n.toFixed(2).replace('.', ',');
 const rec = (id: string): Recording => seedRecordings.find((r) => r.id === id)!;
+const metroCover = rec('metro').cover;
+const metroGlyph = metroCover.kind === 'typo' ? metroCover.glyph : undefined;
 
 const typeSamples: Record<TypeStyleName, string> = {
   titleXL: t.styleguide.titleXL,
@@ -52,6 +70,9 @@ function Board({ theme }: { theme: 'light' | 'dark' }) {
   const [seg, setSeg] = useState('a');
   const [on, setOn] = useState(true);
   const [field, setField] = useState<string>(t.styleguide.fieldValue);
+  const [tags, setTags] = useState<string[]>(rec('metro').tags);
+  const [cover, setCover] = useState<CoverData>(rec('metro').cover);
+  const [rate, setRate] = useState<number>(1);
   return (
     <div data-testid="component-board" data-theme={theme} className={styles.board}>
       <h3 className={styles.h3}>{themeNames[theme]}</h3>
@@ -144,11 +165,104 @@ function Board({ theme }: { theme: 'light' | 'dark' }) {
           <EmptyState title={t.styleguide.emptyTitle} body={t.styleguide.emptyBody} action={{ label: t.styleguide.emptyAction, onClick: () => {} }} />
         </div>
       </Item>
+      <Item label="Sheet (inline)">
+        <div className={styles.narrow}>
+          <Sheet open inline onClose={() => {}} title={t.player.speed}>
+            <SegmentedControl<number>
+              ariaLabel={t.player.speed}
+              value={rate}
+              onChange={setRate}
+              options={RATES.map((r) => ({ value: r, label: formatRate(r) }))}
+            />
+          </Sheet>
+        </div>
+      </Item>
+      <Item label="ActionSheet (inline)">
+        <div className={styles.narrow}>
+          <ActionSheet
+            open
+            inline
+            onClose={() => {}}
+            title={rec('kolobok').title}
+            actions={[
+              { label: t.actions.listen, onSelect: () => {} },
+              { label: t.actions.edit, onSelect: () => {} },
+              { label: t.actions.revoice, onSelect: () => {} },
+              { label: t.actions.delete, destructive: true, onSelect: () => {} },
+            ]}
+          />
+        </div>
+      </Item>
+      <Item label="Banner">
+        <BannerView inline title={t.create.doneTitle} body={t.create.readyBody(rec('sensory').title)} onPress={() => {}} />
+      </Item>
+      <Item label="Recorder: bereit · Aufnahme · aufgenommen · zu leise">
+        <div className={styles.recorders}>
+          {(['idle', 'recording', 'recorded', 'tooQuiet'] as const).map((d) => (
+            <div key={d} className={styles.recorderBox}>
+              <Recorder mode="phrases" phrases={phrases} index={2} onIndexChange={() => {}} onDone={() => {}} demoState={d} />
+            </div>
+          ))}
+        </div>
+      </Item>
+      <Item label="LevelMeter: aus · an">
+        <div className={styles.row}>
+          <LevelMeter active={false} />
+          <LevelMeter active />
+        </div>
+      </Item>
+      <Item label="TagEditor">
+        <div className={styles.narrow}>
+          <TagEditor tags={tags} onChange={setTags} />
+        </div>
+      </Item>
+      <Item label="FolderPicker (inline)">
+        <div className={styles.narrow}>
+          <FolderPicker open inline onClose={() => {}} value="chinese" onChange={() => {}} />
+        </div>
+      </Item>
+      <Item label="CoverPicker">
+        <CoverPicker cover={cover} title={rec('metro').title} glyph={metroGlyph} onChange={setCover} />
+      </Item>
+      <Item label="VoiceMissingRow">
+        <div className={styles.narrow}>
+          <VoiceMissingRow />
+        </div>
+      </Item>
+      <Item label="VoiceCard">
+        <div className={styles.narrow}>
+          <VoiceCard quality={86} minutes={10} updatedAt={new Date().toISOString()} />
+        </div>
+      </Item>
+      <Item label="Icons">
+        <div className={styles.icons}>
+          {ICON_NAMES.map((n) => (
+            <span key={n} className={styles.iconCell}>
+              <Icon name={n} />
+              <code className={styles.hex}>{n}</code>
+            </span>
+          ))}
+        </div>
+      </Item>
       <Item label="TabBar (Dock)">
         <div className={styles.dockBox}>
           <TabBar />
         </div>
       </Item>
+    </div>
+  );
+}
+
+function PlayerPreview() {
+  const current = usePlayer((s) => s.currentId);
+  const night = usePlayer((s) => s.nightMode);
+  return (
+    <div className={styles.row}>
+      <div className={styles.miniBox}>{current && !night ? <MiniPlayer /> : null}</div>
+      <div className={styles.phoneBox}>{current && !night ? <FullPlayer /> : null}</div>
+      <Button variant="outline" full={false} onClick={() => usePlayer.getState().open('psychology')}>
+        Demo laden
+      </Button>
     </div>
   );
 }
@@ -196,6 +310,7 @@ export function Styleguide() {
 
       <section className={styles.section}>
         <h2 className={styles.h2}>Kontrast</h2>
+        <div className={styles.tableScroll}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -214,7 +329,7 @@ export function Styleguide() {
                   <tr key={`${th}-${r.fg}-${r.bg}`} data-testid="contrast-row">
                     <td>{themeNames[th]}</td>
                     <td>
-                      <span className={styles.pair} style={{ background: colors[th][r.bg], color: colors[th][r.fg] }}>
+                      <span className={styles.pair} data-decor aria-hidden="true" style={{ background: colors[th][r.bg], color: colors[th][r.fg] }}>
                         Aa
                       </span>{' '}
                       {r.fg} / {r.bg}
@@ -228,6 +343,7 @@ export function Styleguide() {
             )}
           </tbody>
         </table>
+        </div>
       </section>
 
       <section className={styles.section}>
@@ -267,6 +383,11 @@ export function Styleguide() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Mini-Player und Vollbild-Player</h2>
+        <PlayerPreview />
       </section>
 
       <section className={styles.section}>

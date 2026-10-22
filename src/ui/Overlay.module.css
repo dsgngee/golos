@@ -40,6 +40,16 @@
   gap: 8px;
 }
 
+.inline {
+  animation: none;
+  max-height: none;
+}
+
+.inline.sheet {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--line);
+}
+
 @keyframes rise {
   from {
     transform: translateY(100%);

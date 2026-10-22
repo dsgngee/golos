@@ -24,14 +24,19 @@ export default function App() {
   const onboardingDone = useVoice((s) => s.onboardingDone);
   const setupActive = useVoice((s) => s.setupActive);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-  }, [theme]);
-
   // Einfacher Anker (#styleguide) funktioniert auch als Deep-Link aus dem Artifact; #/styleguide bleibt gültig.
-  if (hash === '#styleguide' || hash === '#/styleguide') {
+  const isStyleguide = hash === '#styleguide' || hash === '#/styleguide';
+  // Der Styleguide ist hell; seine Boards setzen ihr Theme selbst. Sonst würde ein dunkles App-Theme
+  // auf <html> über theme-spezifische Regeln in die hellen Boards durchschlagen.
+  const documentTheme = isStyleguide ? 'light' : theme;
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = documentTheme;
+  }, [documentTheme]);
+
+  if (isStyleguide) {
     return (
-      <div data-testid="app-root" data-theme={theme} className={styles.root}>
+      <div data-testid="app-root" data-theme="light" className={styles.root}>
         <Styleguide />
       </div>
     );

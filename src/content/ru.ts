@@ -108,6 +108,7 @@ export const t = {
     toLibrary: 'В библиотеку',
     doneTitle: 'Готово',
     listen: 'Слушать',
+    another: 'Озвучить ещё текст',
     readyBody: (title: string) => `«${title}» можно слушать`,
     translatedMeta: (lang: string) => `Перевод с русского · ${lang}`,
   },

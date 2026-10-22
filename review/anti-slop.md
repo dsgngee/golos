@@ -53,3 +53,12 @@ Checkliste: keine Floskeln/KI-Signalwörter (russische Entsprechungen von *unloc
 Keine Floskeln gefunden. Anrede durchgehend „вы“. Pluralformen, Dezimalkomma und Minuszeichen werden über `src/i18n/format.ts` erzeugt und sind getestet.
 
 **Offen für den Designer:** Die russischen Texte sollte vor der Kunden-Runde einmal eine russische Muttersprachlerin bzw. ein Muttersprachler gegenlesen.
+
+## Nachtrag nach dem unabhängigen Code-Review
+
+Der Reviewer hat einen Fehler gefunden, den diese Prüfung übersehen hatte:
+- **Sheets aus dem Vollbild-Player lagen unter dem Player.** Tempo, Sleep-Timer und Kapitel waren dadurch unbenutzbar. Die Screenshots `player-tempo`, `player-sleep` und `player-chapters` zeigten das, wurden im Gold-Standard-Vergleich aber nicht angesehen.
+  - Behoben: Die Overlay-Ebene liegt jetzt über den Playern (z-index 55, Banner 60).
+  - Die Qualitätssuite prüft nun per Hit-Test, dass jedes offene Sheet oben liegt.
+  - Ein E2E-Test bedient Tempo und Kapitel aus dem Player.
+- **Styleguide** um alle fehlenden Bausteine und Zustände ergänzt (Sheets, Banner, Recorder-Zustände, Pegel, Tag-/Ordner-/Cover-Auswahl, Stimm-Karte, Icons, Mini- und Vollbild-Player). Er ist jetzt Teil der Qualitätssuite bei 375/390/430 px.

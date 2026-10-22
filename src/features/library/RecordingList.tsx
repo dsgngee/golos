@@ -1,9 +1,17 @@
 import { useState } from 'react';
+import { useNav } from '../../app/navigation';
 import type { Recording } from '../../data/types';
+import { statusOf } from '../../store/library';
 import { usePlayer } from '../../store/player';
 import { RecordingRow } from '../../ui/RecordingRow';
 import { RecordingActions } from './RecordingActions';
 import { useLongPress } from './useLongPress';
+
+function press(r: Recording) {
+  // Noch nicht vertont: Fortschritt zeigen statt „abspielen“.
+  if (statusOf(r) === 'generating') useNav.getState().push({ name: 'create.generating', params: { id: r.id } });
+  else usePlayer.getState().open(r.id, { autoplay: true });
+}
 
 function Row({ recording, index, onActions }: { recording: Recording; index: number; onActions(): void }) {
   const longPress = useLongPress(onActions);
@@ -11,7 +19,7 @@ function Row({ recording, index, onActions }: { recording: Recording; index: num
     <RecordingRow
       recording={recording}
       index={index}
-      onPress={() => usePlayer.getState().open(recording.id, { autoplay: true })}
+      onPress={() => press(recording)}
       onMore={onActions}
       pressProps={longPress}
     />

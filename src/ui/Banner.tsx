@@ -6,6 +6,19 @@ import styles from './Banner.module.css';
 
 export const BANNER_MS = 4000;
 
+/** Darstellung des Banners (auch für den Styleguide). */
+export function BannerView({ title, body, onPress, inline }: { title: string; body?: string; onPress(): void; inline?: boolean }) {
+  return (
+    <div className={inline ? styles.inlineWrap : styles.wrap} role="status">
+      <button className={styles.banner} onClick={onPress}>
+        <span className={styles.app}>{t.banner.app}</span>
+        <span className={styles.title}>{title}</span>
+        {body && <span className={styles.body}>{body}</span>}
+      </button>
+    </div>
+  );
+}
+
 export function Banner() {
   const banner = useUi((s) => s.banner);
   const hide = useUi((s) => s.hideBanner);
@@ -18,18 +31,13 @@ export function Banner() {
 
   if (!banner) return null;
   return (
-    <div className={styles.wrap} role="status">
-      <button
-        className={styles.banner}
-        onClick={() => {
-          if (banner.recordingId) usePlayer.getState().open(banner.recordingId, { expand: true });
-          hide();
-        }}
-      >
-        <span className={styles.app}>{t.banner.app}</span>
-        <span className={styles.title}>{banner.title}</span>
-        {banner.body && <span className={styles.body}>{banner.body}</span>}
-      </button>
-    </div>
+    <BannerView
+      title={banner.title}
+      body={banner.body}
+      onPress={() => {
+        if (banner.recordingId) usePlayer.getState().open(banner.recordingId, { expand: true });
+        hide();
+      }}
+    />
   );
 }

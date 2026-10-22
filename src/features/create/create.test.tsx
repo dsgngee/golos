@@ -6,6 +6,7 @@ import { useLibrary } from '../../store/library';
 import { useVoice } from '../../store/voice';
 import { draftFromLink, top } from '../../test/helpers';
 import { useDraft } from './draft';
+import { GeneratingScreen } from './GeneratingScreen';
 import { OptionsScreen } from './OptionsScreen';
 import { ReviewScreen } from './ReviewScreen';
 import { SourceScreen } from './SourceScreen';
@@ -67,6 +68,17 @@ test('Озвучить disables after first tap and starts one job', async () =>
   await userEvent.click(cta);
   expect(useGeneration.getState().jobs).toHaveLength(1);
   expect(top('create')).toBe('create.generating');
+});
+
+test('finished generating screen offers to voice another text', async () => {
+  const id = useGeneration.getState().start(draftFromLink());
+  useGeneration.getState().tick(60_000);
+  useNav.getState().push({ name: 'create.generating', params: { id } });
+  useDraft.getState().setDraft({ text: 'старый текст' });
+  render(<GeneratingScreen params={{ id }} />);
+  await userEvent.click(screen.getByRole('button', { name: 'Озвучить ещё текст' }));
+  expect(top('create')).toBe('create.source');
+  expect(useDraft.getState().draft.text).toBe('');
 });
 
 test('blank title disables Озвучить', async () => {

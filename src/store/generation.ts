@@ -28,6 +28,8 @@ export function jobDurationMs(durationSec: number): number {
   return Math.min(20_000, Math.max(6_000, durationSec * 8));
 }
 
+export const MIN_DURATION_SEC = 60;
+
 const newId = () => `rec-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
 
 export const useGeneration = create<GenerationState>()(
@@ -35,7 +37,8 @@ export const useGeneration = create<GenerationState>()(
     (set, get) => ({
       jobs: [],
       start: (d) => {
-        const durationSec = estimateSec(draftWords(d));
+        // Mindestens eine Minute – so verspricht es die Schätzung („≈ 1 мин“) auf dem Prüf-Screen.
+        const durationSec = Math.max(MIN_DURATION_SEC, estimateSec(draftWords(d)));
         const id = newId();
         const translated = d.translateTo && d.translateTo !== d.language;
         const rec: Recording = {

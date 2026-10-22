@@ -42,6 +42,11 @@ test('translation sets language and meta', () => {
   expect(lib(id)).toMatchObject({ language: 'zh', translatedFrom: 'ru', meta: 'Перевод с русского · Китайский' });
 });
 
+test('a very short text still yields the promised minimum of one minute', () => {
+  const id = useGeneration.getState().start({ ...draftFromLink(), text: 'Привет, мир.', simulatedWords: undefined });
+  expect(lib(id).durationSec).toBe(60);
+});
+
 test('tags are cleaned on start', () => {
   const id = useGeneration.getState().start({ ...draftFromLink(), tags: [' Аутизм ', 'аутизм', ''] });
   expect(lib(id).tags).toEqual(['аутизм']);

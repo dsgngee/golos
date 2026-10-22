@@ -112,6 +112,8 @@ const paths: Record<IconName, ReactNode> = {
   sort: <path d="M7 4v16M4 17l3 3 3-3M17 20V4M14 7l3-3 3 3" />,
 };
 
+export const ICON_NAMES = Object.keys(paths) as IconName[];
+
 export function Icon({ name, size = 22 }: { name: IconName; size?: number }) {
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false" className={styles.icon}>

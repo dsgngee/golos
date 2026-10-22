@@ -82,10 +82,11 @@
   overflow: hidden;
 }
 
+/* Ebenen im Screen: Dock 30 · Player 45 · Sheets 55 · Banner 60 */
 .overlayRoot {
   position: absolute;
   inset: 0;
-  z-index: 40;
+  z-index: 55;
   pointer-events: none;
 }
 

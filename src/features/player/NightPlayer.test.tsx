@@ -28,6 +28,17 @@ test('quick timer chips set the sleep timer, off shows hint', async () => {
   expect(screen.getByText('Таймер выключен')).toBeInTheDocument();
 });
 
+test('chapter-end timer is shown as such, not as "off"', () => {
+  act(() => {
+    usePlayer.getState().open('psychology', { expand: true });
+    usePlayer.getState().setNightMode(true);
+    usePlayer.getState().setSleep('chapterEnd');
+  });
+  render(<NightPlayer />);
+  expect(screen.getByText('До конца главы')).toBeInTheDocument();
+  expect(screen.queryByText('Таймер выключен')).toBeNull();
+});
+
 test('fade hint under one minute', () => {
   act(() => {
     usePlayer.getState().open('kolobok', { expand: true });

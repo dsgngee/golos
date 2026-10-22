@@ -19,6 +19,8 @@ type Props =
       onDone(): void;
       forceTooQuietAt?: number;
       onPause?(): void;
+      /** Nur für den Styleguide: Startzustand der Vorschau. */
+      demoState?: 'idle' | 'recording' | 'recorded' | 'tooQuiet';
     }
   | { mode: 'free'; prompt: string; onDone(): void };
 
@@ -34,14 +36,20 @@ function RecordButton({ recording, label, onClick }: { recording: boolean; label
   );
 }
 
-function PhraseRecorder({ phrases, index, onIndexChange, onDone, forceTooQuietAt, onPause }: Extract<Props, { mode: 'phrases' }>) {
-  const [state, setState] = useState<'idle' | 'recording' | 'recorded'>('idle');
-  const [tooQuiet, setTooQuiet] = useState(false);
+function PhraseRecorder({ phrases, index, onIndexChange, onDone, forceTooQuietAt, onPause, demoState }: Extract<Props, { mode: 'phrases' }>) {
+  const [state, setState] = useState<'idle' | 'recording' | 'recorded'>(
+    demoState === 'recording' || demoState === 'recorded' ? demoState : 'idle',
+  );
+  const [tooQuiet, setTooQuiet] = useState(demoState === 'tooQuiet');
   const warned = useRef(new Set<number>());
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const shownIndex = useRef(index);
 
   useEffect(() => () => clearTimeout(timer.current), []);
+  // Neue Phrase: zurück auf „bereit“ (nicht beim ersten Rendern, damit ein Vorschauzustand erhalten bleibt).
   useEffect(() => {
+    if (shownIndex.current === index) return;
+    shownIndex.current = index;
     setState('idle');
     setTooQuiet(false);
   }, [index]);

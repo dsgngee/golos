@@ -81,6 +81,15 @@ test('deleting the playing recording closes the player', async () => {
   expect(usePlayer.getState().currentId).toBeNull();
 });
 
+test('tapping a recording that is still being voiced opens its progress instead of playing', async () => {
+  const rec = { ...useLibrary.getState().recordings.find((r) => r.id === 'kolobok')!, generationProgress: 0.42 };
+  render(<RecordingList recordings={[rec]} />);
+  await userEvent.click(screen.getByText('Колобок'));
+  expect(usePlayer.getState().isPlaying).toBe(false);
+  expect(usePlayer.getState().currentId).toBeNull();
+  expect(top('library')).toBe('create.generating');
+});
+
 test('row actions: edit pushes the edit screen, revoice starts a job', async () => {
   const rec = useLibrary.getState().recordings.filter((r) => r.id === 'kolobok');
   render(<RecordingList recordings={rec} />);

@@ -2,6 +2,8 @@ import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useNav } from '../../app/navigation';
 import { useVoice } from '../../store/voice';
+import { top } from '../../test/helpers';
+import { useDraft } from '../create/draft';
 import { OnboardingFlow } from './OnboardingFlow';
 
 beforeEach(() => {
@@ -50,6 +52,22 @@ test('setup started from the app begins at prepare and can be cancelled', async 
   render(<OnboardingFlow />);
   expect(screen.getByText('Подготовьтесь')).toBeInTheDocument();
   await userEvent.click(screen.getByRole('button', { name: 'Назад' }));
+  expect(useVoice.getState().setupActive).toBe(false);
+});
+
+test('setup started from the create flow returns there with the draft intact', async () => {
+  const nav = useNav.getState();
+  nav.switchTab('create');
+  nav.push({ name: 'create.review' });
+  nav.push({ name: 'create.options' });
+  useDraft.getState().setDraft({ text: 'Мой текст.', title: 'Мой текст' });
+  useVoice.getState().completeOnboarding();
+  useVoice.getState().startSetup();
+  useVoice.getState().setSetupStep('sample');
+  render(<OnboardingFlow />);
+  await userEvent.click(screen.getByRole('button', { name: 'Озвучить первый текст' }));
+  expect(top('create')).toBe('create.options');
+  expect(useDraft.getState().draft.text).toBe('Мой текст.');
   expect(useVoice.getState().setupActive).toBe(false);
 });
 

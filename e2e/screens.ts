@@ -155,6 +155,16 @@ export const screensToCheck: ScreenCheck[] = [
     },
   },
   {
+    name: 'styleguide',
+    reach: async (p) => {
+      await boot(p);
+      await p.evaluate(() => {
+        location.hash = '#styleguide';
+      });
+      await p.getByRole('heading', { name: 'Styleguide golos' }).waitFor();
+    },
+  },
+  {
     name: 'profile-dark-player',
     reach: async (p) => {
       await boot(p);
