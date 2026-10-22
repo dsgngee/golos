@@ -4,6 +4,7 @@ import { useSettings } from '../store/settings';
 import { useUi } from '../store/ui';
 import { useVoice } from '../store/voice';
 import { useNav } from './navigation';
+import { runScenario, type ScenarioId } from './scenarios';
 
 const stores = {
   library: useLibrary,
@@ -16,12 +17,12 @@ const stores = {
 
 declare global {
   interface Window {
-    __golos?: { stores: typeof stores; runScenario?: (id: string) => void };
+    __golos?: { stores: typeof stores; runScenario?: (id: ScenarioId) => void };
   }
 }
 
-/** Nur im Dev-Build: Zugriff auf die Stores für E2E-Tests. */
+/** Nur im Dev-Build: Zugriff auf Stores und Szenarien für E2E-Tests. */
 export function installDevHooks() {
   if (!import.meta.env.DEV) return;
-  window.__golos = { ...window.__golos, stores };
+  window.__golos = { stores, runScenario };
 }

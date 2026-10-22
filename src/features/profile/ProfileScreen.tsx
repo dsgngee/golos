@@ -14,6 +14,7 @@ import { Sheet } from '../../ui/Sheet';
 import { TextField } from '../../ui/TextField';
 import { Toggle } from '../../ui/Toggle';
 import styles from './ProfileScreen.module.css';
+import { PrototypeMenu } from './PrototypeMenu';
 
 const THEMES: ThemeSetting[] = ['light', 'dark', 'system'];
 const STEPS: SkipStep[] = [10, 15, 30];
@@ -113,6 +114,8 @@ export function ProfileScreen() {
       <Group title={t.profile.about}>
         <Row label={t.profile.version} value={t.profile.versionValue} />
       </Group>
+
+      <PrototypeMenu />
 
       <Sheet open={sheet === 'name'} onClose={close} title={t.profile.nameLabel}>
         <div className={styles.sheetStack}>

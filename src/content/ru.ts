@@ -245,6 +245,20 @@ export const t = {
     version: 'Версия',
     versionValue: 'Прототип 0.1',
   },
+  prototype: {
+    title: 'Прототип',
+    note: 'Этого раздела не будет в приложении',
+    scenarios: {
+      reset: 'Сбросить всё',
+      ready: 'Пропустить онбординг',
+      voiceMissing: 'Голос не настроен',
+      emptyLibrary: 'Пустая библиотека',
+      generating: 'Идёт озвучивание',
+      tooQuiet: 'Предупреждение «Слишком тихо»',
+      readyBanner: 'Баннер «Готово»',
+      night: 'Ночной режим',
+    },
+  },
   recorder: {
     phraseOf: (i: number, n: number) => `Фраза ${i} из ${n}`,
     readAloud: 'Прочитайте вслух',

@@ -5,6 +5,7 @@ import { useVoice } from '../store/voice';
 import styles from './App.module.css';
 import { MainShell } from './MainShell';
 import { PhoneFrame } from './PhoneFrame';
+import { PrototypePanel } from './PrototypePanel';
 import { useResolvedTheme } from './useResolvedTheme';
 
 function useHash(): string {
@@ -39,7 +40,7 @@ export default function App() {
 
   return (
     <div data-testid="app-root" data-theme={theme} className={styles.root}>
-      <PhoneFrame>{content}</PhoneFrame>
+      <PhoneFrame side={<PrototypePanel />}>{content}</PhoneFrame>
     </div>
   );
 }
