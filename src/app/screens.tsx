@@ -3,6 +3,7 @@ import { GeneratingScreen } from '../features/create/GeneratingScreen';
 import { OptionsScreen } from '../features/create/OptionsScreen';
 import { ReviewScreen } from '../features/create/ReviewScreen';
 import { SourceScreen } from '../features/create/SourceScreen';
+import { EditScreen } from '../features/library/EditScreen';
 import { FolderScreen } from '../features/library/FolderScreen';
 import { LibraryHome } from '../features/library/LibraryHome';
 import { SearchScreen } from '../features/library/SearchScreen';
@@ -27,7 +28,7 @@ export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
   'library.home': LibraryHome,
   'library.search': SearchScreen,
   'library.folder': FolderScreen,
-  'library.edit': placeholder('library.edit'),
+  'library.edit': EditScreen,
   'create.source': SourceScreen,
   'create.review': ReviewScreen,
   'create.options': OptionsScreen,

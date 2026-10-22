@@ -2,13 +2,12 @@ import { useNav } from '../../app/navigation';
 import { t } from '../../content/ru';
 import { FORMS, countLabel } from '../../i18n/format';
 import { continueCandidate, selectRecordings, useLibrary } from '../../store/library';
-import { usePlayer } from '../../store/player';
 import { useVoice } from '../../store/voice';
 import { Button } from '../../ui/Button';
 import { EmptyState } from '../../ui/EmptyState';
 import { Icon } from '../../ui/icons';
-import { RecordingRow } from '../../ui/RecordingRow';
 import { ContinueCard } from './ContinueCard';
+import { RecordingList } from './RecordingList';
 import styles from './LibraryHome.module.css';
 import { VoiceMissingRow } from './VoiceMissingRow';
 
@@ -54,14 +53,7 @@ export function LibraryHome() {
           </Button>
           <section>
             <h2 className={styles.section}>{t.library.recent}</h2>
-            {recent.map((r, i) => (
-              <RecordingRow
-                key={r.id}
-                recording={r}
-                index={i + 1}
-                onPress={() => usePlayer.getState().open(r.id, { autoplay: true })}
-              />
-            ))}
+            <RecordingList recordings={recent} />
             <button className={styles.all} onClick={() => nav.push({ name: 'library.search' })}>
               <span>{t.library.all}</span>
               <Icon name="chevronRight" size={18} />
