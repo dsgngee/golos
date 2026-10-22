@@ -20,7 +20,7 @@ test('Позже completes onboarding without voice', async () => {
 
 test('expectation step explains the unfamiliar voice', async () => {
   render(<OnboardingFlow />);
-  await userEvent.click(screen.getByRole('button', { name: 'Начать' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Настроить голос' }));
   expect(screen.getByText('Сначала голос покажется непривычным')).toBeInTheDocument();
   await userEvent.click(screen.getByRole('button', { name: 'Назад' }));
   expect(useVoice.getState().setupStep).toBe('welcome');
@@ -30,7 +30,7 @@ test('full happy path ends ready', async () => {
   vi.useFakeTimers({ shouldAdvanceTime: true });
   const u = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
   render(<OnboardingFlow />);
-  await u.click(screen.getByRole('button', { name: 'Начать' }));
+  await u.click(screen.getByRole('button', { name: 'Настроить голос' }));
   await u.click(screen.getByRole('button', { name: 'Понятно' }));
   await u.click(screen.getByRole('button', { name: 'Начать запись' }));
   expect(screen.getByText('Фраза 1 из 30')).toBeInTheDocument();

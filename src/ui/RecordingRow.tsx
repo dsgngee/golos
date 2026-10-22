@@ -26,7 +26,7 @@ export function RecordingRow({ recording: r, index, onPress, onMore, pressProps 
   return (
     <div className={styles.row} data-testid="recording-row">
       <button className={styles.main} onClick={onPress} {...pressProps}>
-        {index !== undefined && <span className={styles.num}>{String(index).padStart(2, '0')}</span>}
+        {index !== undefined && <span className={styles.num} aria-hidden="true" data-decor>{String(index).padStart(2, '0')}</span>}
         <span className={styles.text}>
           <span className={styles.title}>{r.title}</span>
           <span className={`${styles.sub} ${status === 'generating' ? styles.generating : ''}`}>

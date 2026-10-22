@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { t } from '../../content/ru';
 import type { Recording } from '../../data/types';
 import styles from './ReadAlong.module.css';
 import { currentSentenceIndex, splitSentences } from './sentences';
@@ -13,7 +14,7 @@ export function ReadAlong({ recording }: { recording: Recording }) {
   }, [idx]);
 
   return (
-    <div className={styles.text}>
+    <div className={styles.text} role="region" aria-label={t.player.text} tabIndex={0}>
       {sentences.map((s, i) => (
         <p
           key={i}

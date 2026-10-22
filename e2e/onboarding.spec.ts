@@ -5,7 +5,7 @@ test('first visit starts onboarding and reaches library', async ({ page }) => {
   await page.evaluate(() => localStorage.clear());
   await page.reload();
   await expect(page.getByText('Слушайте любой текст своим голосом')).toBeVisible();
-  await page.getByRole('button', { name: 'Начать' }).click();
+  await page.getByRole('button', { name: 'Настроить голос' }).click();
   await page.getByRole('button', { name: 'Понятно' }).click();
   await page.getByRole('button', { name: 'Начать запись' }).click();
   await page.getByRole('button', { name: 'Записать все фразы (прототип)' }).click();

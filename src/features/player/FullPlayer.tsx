@@ -16,7 +16,21 @@ import { currentChapterIndex } from './sentences';
 import { SleepSheet } from './SleepSheet';
 import { TempoSheet } from './TempoSheet';
 
-function Action({ icon, label, value, pressed, onClick }: { icon: IconName; label: string; value?: string; pressed?: boolean; onClick(): void }) {
+function Action({
+  icon,
+  label,
+  short,
+  value,
+  pressed,
+  onClick,
+}: {
+  icon: IconName;
+  label: string;
+  short?: string;
+  value?: string;
+  pressed?: boolean;
+  onClick(): void;
+}) {
   return (
     <button
       className={`${styles.action} ${pressed ? styles.pressed : ''}`}
@@ -25,7 +39,7 @@ function Action({ icon, label, value, pressed, onClick }: { icon: IconName; labe
       onClick={onClick}
     >
       <Icon name={icon} size={22} />
-      <span className={styles.actionLabel}>{value ?? label}</span>
+      <span className={styles.actionLabel}>{value ?? short ?? label}</span>
     </button>
   );
 }
@@ -74,7 +88,7 @@ export function FullPlayer() {
         <Action icon="timer" label={t.player.timer} value={sleepValue} pressed={p.sleep.option !== 'off'} onClick={() => setSheet('sleep')} />
         {rec.chapters && <Action icon="chapters" label={t.player.chapters} onClick={() => setSheet('chapters')} />}
         <Action icon="text" label={t.player.text} pressed={p.readAlong} onClick={() => p.setReadAlong(!p.readAlong)} />
-        <Action icon="moon" label={t.player.night} onClick={() => p.setNightMode(true)} />
+        <Action icon="moon" label={t.player.night} short={t.player.nightShort} onClick={() => p.setNightMode(true)} />
       </div>
 
       <TempoSheet open={sheet === 'tempo'} onClose={close} />

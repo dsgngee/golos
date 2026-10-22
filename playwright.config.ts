@@ -16,5 +16,12 @@ export default defineConfig({
     { name: 'iphone-375', use: { ...devices['iPhone 13'], viewport: { width: 375, height: 667 } } },
     { name: 'iphone-430', use: { ...devices['iPhone 13'], viewport: { width: 430, height: 932 } } },
     { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 900 } } },
+    // Chromium im iPhone-Format: korrekte Darstellung variabler Schriften für Review-Screenshots
+    // (Playwright-WebKit unter Windows rendert die Gewichtsachse von Onest nicht).
+    {
+      name: 'iphone-390-chromium',
+      testMatch: /quality\.spec\.ts/,
+      use: { ...devices['Desktop Chrome'], viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 },
+    },
   ],
 });

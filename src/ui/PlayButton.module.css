@@ -13,6 +13,12 @@
   transform: scale(0.93);
 }
 
+.quiet {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+
 .l {
   width: 58px;
   height: 58px;

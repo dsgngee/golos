@@ -15,19 +15,6 @@ import type { ScreenName } from './navigation';
 
 export type ScreenProps = { params?: Record<string, string> };
 
-export function Placeholder({ name }: { name: string }) {
-  return (
-    <div data-testid="placeholder" style={{ padding: 24 }}>
-      {name}
-    </div>
-  );
-}
-
-const placeholder = (name: string): ComponentType<ScreenProps> =>
-  function PlaceholderScreen() {
-    return <Placeholder name={name} />;
-  };
-
 export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
   'library.home': LibraryHome,
   'library.search': SearchScreen,

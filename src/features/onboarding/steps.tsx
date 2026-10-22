@@ -56,7 +56,7 @@ export function Prepare({ onBack, onNext }: { onBack(): void; onNext(): void }) 
       <ol className={styles.list}>
         {t.onboarding.prepareItems.map((item, i) => (
           <li key={item}>
-            <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
+            <span className={styles.num} aria-hidden="true" data-decor>{String(i + 1).padStart(2, '0')}</span>
             {item}
           </li>
         ))}

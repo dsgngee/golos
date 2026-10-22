@@ -26,7 +26,7 @@ function StyleSamples() {
       {STYLES.map((s) => (
         <div key={s} className={styles.styleRow}>
           <span className={styles.styleName}>{styleName[s]}</span>
-          <PlayButton size="m" playing={playing === s} onToggle={() => setPlaying(playing === s ? null : s)} />
+          <PlayButton size="m" tone="quiet" playing={playing === s} onToggle={() => setPlaying(playing === s ? null : s)} />
         </div>
       ))}
     </section>
@@ -69,7 +69,7 @@ export function VoiceHome() {
             const done = v.sessionsDone.includes(s.id);
             return (
               <button key={s.id} className={styles.session} onClick={() => nav.push({ name: 'voice.session', params: { id: s.id } })}>
-                <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
+                <span className={styles.num} aria-hidden="true" data-decor>{String(i + 1).padStart(2, '0')}</span>
                 <span className={styles.sessionText}>
                   <span className={styles.sessionTitle}>{s.title}</span>
                   <span className={styles.sessionSub}>{s.subtitle}</span>

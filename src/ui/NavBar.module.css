@@ -3,7 +3,8 @@
   top: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: 64px 1fr 64px;
+  grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(max-content, 1fr);
+  column-gap: 8px;
   align-items: center;
   min-height: 52px;
   padding: 0 8px;
@@ -17,6 +18,10 @@
 
 .right {
   justify-content: flex-end;
+}
+
+.right button {
+  white-space: nowrap;
 }
 
 .back {
