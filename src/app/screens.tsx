@@ -7,6 +7,9 @@ import { EditScreen } from '../features/library/EditScreen';
 import { FolderScreen } from '../features/library/FolderScreen';
 import { LibraryHome } from '../features/library/LibraryHome';
 import { SearchScreen } from '../features/library/SearchScreen';
+import { RevoiceScreen } from '../features/voice/RevoiceScreen';
+import { VoiceHome } from '../features/voice/VoiceHome';
+import { VoiceSessionScreen } from '../features/voice/VoiceSessionScreen';
 import type { ScreenName } from './navigation';
 
 export type ScreenProps = { params?: Record<string, string> };
@@ -33,8 +36,8 @@ export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
   'create.review': ReviewScreen,
   'create.options': OptionsScreen,
   'create.generating': GeneratingScreen,
-  'voice.home': placeholder('voice.home'),
-  'voice.session': placeholder('voice.session'),
-  'voice.revoice': placeholder('voice.revoice'),
+  'voice.home': VoiceHome,
+  'voice.session': VoiceSessionScreen,
+  'voice.revoice': RevoiceScreen,
   'profile.home': placeholder('profile.home'),
 };
