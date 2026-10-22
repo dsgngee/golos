@@ -1,0 +1,56 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--surface-inverse) 45%, transparent);
+  animation: fade 220ms ease-out;
+}
+
+[data-theme='dark'] .backdrop,
+[data-theme='night'] .backdrop {
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+}
+
+.panel {
+  position: relative;
+  max-height: 88%;
+  display: flex;
+  flex-direction: column;
+  animation: rise 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sheet {
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.actions {
+  padding: 0 10px calc(10px + env(safe-area-inset-bottom));
+  gap: 8px;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}

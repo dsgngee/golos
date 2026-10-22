@@ -1,4 +1,4 @@
-import { colors, colorTokenNames, fontFamilies, radius, typeScale, type ThemeName } from './tokens';
+import { colors, colorTokenNames, fontFamilies, frameChrome, radius, typeScale, type ThemeName } from './tokens';
 
 const kebab = (s: string) => s.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase());
 
@@ -12,6 +12,7 @@ export function tokensToCss(): string {
     `--font-sans: ${fontFamilies.sans};`,
     `--font-mono: ${fontFamilies.mono};`,
     ...Object.entries(radius).map(([k, v]) => `--radius-${k}: ${v}px;`),
+    ...Object.entries(frameChrome).map(([k, v]) => `--frame-${k}: ${v};`),
     ...Object.entries(typeScale).flatMap(([name, s]) => {
       const n = kebab(name);
       return [

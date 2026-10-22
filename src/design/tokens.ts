@@ -108,6 +108,9 @@ export const fontFamilies = {
 
 export const radius = { card: 22, control: 16, round: 999 } as const;
 
+// Nur für den Desktop-Präsentationsrahmen (iPhone-Gehäuse), nicht Teil des App-Designs.
+export const frameChrome = { bezel: '#0A0A0A', rim: '#3A3A3C' } as const;
+
 // Erdige Motive für „Фото“-Cover (Basis, Form) – flächig, keine Verläufe.
 export const coverMotifs: ReadonlyArray<readonly [base: string, shape: string]> = [
   ['#C9B8A0', '#8C7A62'],
