@@ -7,6 +7,7 @@ import { EditScreen } from '../features/library/EditScreen';
 import { FolderScreen } from '../features/library/FolderScreen';
 import { LibraryHome } from '../features/library/LibraryHome';
 import { SearchScreen } from '../features/library/SearchScreen';
+import { ProfileScreen } from '../features/profile/ProfileScreen';
 import { RevoiceScreen } from '../features/voice/RevoiceScreen';
 import { VoiceHome } from '../features/voice/VoiceHome';
 import { VoiceSessionScreen } from '../features/voice/VoiceSessionScreen';
@@ -39,5 +40,5 @@ export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
   'voice.home': VoiceHome,
   'voice.session': VoiceSessionScreen,
   'voice.revoice': RevoiceScreen,
-  'profile.home': placeholder('profile.home'),
+  'profile.home': ProfileScreen,
 };
