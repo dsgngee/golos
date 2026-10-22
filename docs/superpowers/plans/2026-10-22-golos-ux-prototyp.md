@@ -49,8 +49,8 @@
 - **Kein** Abo, kein Telegram, kein Backend.
 - **Hosting-unabhängig:** Vite `base: './'`, Hash-Routing, statischer Build.
 - **Referenz-Entwürfe (maßgeblich für den Look)** – vor jeder UI-Aufgabe im Browser öffnen:
-  - `.superpowers/brainstorm/3225-1792574096/content/studiya-player-v2.html` → rechter Entwurf
-  - Für Dunkel nur als Farbreferenz: `.superpowers/brainstorm/3164-1792573334/content/studiya-varianten.html` → B2
+  - `docs/design/mockups/studiya-player-v2.html` → rechter Entwurf
+  - Für Dunkel nur als Farbreferenz: `docs/design/mockups/studiya-varianten.html` → B2
 - **Styleguide bleibt synchron:** Jede Aufgabe, die eine neue wiederverwendbare Komponente oder einen neuen Zustand einführt, ergänzt sie in derselben Aufgabe auf der Styleguide-Seite (ab Task 9).
 - **Skills:**
   - `ui-ux-pro-max` für iOS-/Mobile-Regeln bei UI-Aufgaben

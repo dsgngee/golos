@@ -1,0 +1,53 @@
+.wrap {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  z-index: 60;
+  animation: drop 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.inlineWrap {
+  max-width: 390px;
+}
+
+.banner {
+  width: 100%;
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  text-align: left;
+  padding: 12px 16px;
+  border-radius: var(--radius-card);
+  background: var(--surface-inverse);
+  color: var(--on-inverse);
+}
+
+.banner:active {
+  transform: scale(0.98);
+}
+
+.app {
+  font-family: var(--font-mono);
+  font-size: var(--type-label-size);
+  letter-spacing: var(--type-label-ls);
+  text-transform: uppercase;
+  color: var(--accent-text-on-inverse);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.body {
+  font-size: 13px;
+  color: var(--muted-on-inverse);
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-120%);
+  }
+}

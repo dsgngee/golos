@@ -1,0 +1,29 @@
+.meter {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.meter i {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--line);
+  transition: height 200ms ease-out;
+}
+
+.active i {
+  background: var(--accent);
+  animation: level 540ms ease-in-out infinite alternate;
+}
+
+@keyframes level {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}

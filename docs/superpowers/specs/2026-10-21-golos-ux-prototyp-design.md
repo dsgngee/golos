@@ -62,8 +62,8 @@ Markierungen: **[Entscheidung Designer]** = vom Designer so festgelegt. **[Annah
 **[Entscheidung Designer]** – gewählt aus drei Premium-Richtungen und drei Varianten. Grundgefühl laut Designer: **„Premium & hochwertig“**. Charakter: wie ein hochwertiges Audiogerät – präzise, selbstbewusst, werkzeughaft, aber edel.
 
 **Verbindliche Referenz-Entwürfe** (im Browser öffnen):
-- Hell, Startseite mit finalem Player-Block: `.superpowers/brainstorm/3225-1792574096/content/studiya-player-v2.html` → **rechter Entwurf („Sprungtasten als Symbol“) ist maßgeblich.**
-- Dunkel: `.superpowers/brainstorm/3164-1792573334/content/studiya-varianten.html` → mittlerer Entwurf **B2 «Ночь»**, **nur als Farbreferenz**.
+- Hell, Startseite mit finalem Player-Block: `docs/design/mockups/studiya-player-v2.html` → **rechter Entwurf („Sprungtasten als Symbol“) ist maßgeblich.**
+- Dunkel: `docs/design/mockups/studiya-varianten.html` → mittlerer Entwurf **B2 «Ночь»**, **nur als Farbreferenz**.
 
 **Dunkelmodus = gleiches Layout wie hell, nur mit dunklen Tokens.** **[Annahme Claude]** Von B2 werden ausschließlich die Farben übernommen, nicht seine Player-Details (kleiner dunkler Play-Knopf, kombinierte Zeitangabe, fehlende ±15). Es gilt überall der Player aus dem hellen Referenz-Entwurf: orange Play-Fläche, Fortschrittslinie, ±15-Symbole. Der Gute-Nacht-Modus ist davon getrennt (6.7).
 

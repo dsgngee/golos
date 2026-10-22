@@ -1,0 +1,43 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.option {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  font-size: 16px;
+}
+
+.option:first-child {
+  border-top: none;
+}
+
+.option:active {
+  opacity: 0.6;
+}
+
+.option[aria-pressed='true'] {
+  font-weight: 600;
+}
+
+.name {
+  flex: 1;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.error {
+  font-size: 13px;
+  color: var(--accent-text);
+}

@@ -1,0 +1,62 @@
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--type-label-size);
+  font-weight: 500;
+  letter-spacing: var(--type-label-ls);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.option {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  border: 2px solid transparent;
+}
+
+.selected {
+  border-color: var(--ink);
+}
+
+.photo {
+  border: 1.5px dashed var(--muted);
+  color: var(--muted);
+}
+
+.photo.selected {
+  border: 2px solid var(--ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  justify-items: center;
+}
+
+.gridItem {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+}
+
+.gridItem:active {
+  transform: scale(0.95);
+}

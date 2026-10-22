@@ -1,0 +1,49 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) minmax(0, auto) minmax(max-content, 1fr);
+  column-gap: 8px;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 8px;
+  background: var(--bg);
+}
+
+.side {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.right button {
+  white-space: nowrap;
+}
+
+.back {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-round);
+  color: var(--ink);
+}
+
+.back:active {
+  background: var(--line);
+}
+
+.title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

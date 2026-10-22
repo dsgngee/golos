@@ -1,0 +1,31 @@
+import type { ComponentType } from 'react';
+import { GeneratingScreen } from '../features/create/GeneratingScreen';
+import { OptionsScreen } from '../features/create/OptionsScreen';
+import { ReviewScreen } from '../features/create/ReviewScreen';
+import { SourceScreen } from '../features/create/SourceScreen';
+import { EditScreen } from '../features/library/EditScreen';
+import { FolderScreen } from '../features/library/FolderScreen';
+import { LibraryHome } from '../features/library/LibraryHome';
+import { SearchScreen } from '../features/library/SearchScreen';
+import { ProfileScreen } from '../features/profile/ProfileScreen';
+import { RevoiceScreen } from '../features/voice/RevoiceScreen';
+import { VoiceHome } from '../features/voice/VoiceHome';
+import { VoiceSessionScreen } from '../features/voice/VoiceSessionScreen';
+import type { ScreenName } from './navigation';
+
+export type ScreenProps = { params?: Record<string, string> };
+
+export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
+  'library.home': LibraryHome,
+  'library.search': SearchScreen,
+  'library.folder': FolderScreen,
+  'library.edit': EditScreen,
+  'create.source': SourceScreen,
+  'create.review': ReviewScreen,
+  'create.options': OptionsScreen,
+  'create.generating': GeneratingScreen,
+  'voice.home': VoiceHome,
+  'voice.session': VoiceSessionScreen,
+  'voice.revoice': RevoiceScreen,
+  'profile.home': ProfileScreen,
+};

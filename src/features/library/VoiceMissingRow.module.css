@@ -1,0 +1,28 @@
+.row {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-control);
+  border: 1.5px solid var(--ink);
+  text-align: left;
+}
+
+.row:active {
+  background: var(--line);
+}
+
+.text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.action {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-text);
+}
