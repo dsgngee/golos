@@ -1,4 +1,5 @@
 import { useEffect, useSyncExternalStore } from 'react';
+import { Styleguide } from '../features/styleguide/Styleguide';
 import { useVoice } from '../store/voice';
 import styles from './App.module.css';
 import { MainShell } from './MainShell';
@@ -29,7 +30,7 @@ export default function App() {
   if (hash === '#/styleguide') {
     return (
       <div data-testid="app-root" data-theme={theme} className={styles.root}>
-        <Placeholder name="styleguide" />
+        <Styleguide />
       </div>
     );
   }
