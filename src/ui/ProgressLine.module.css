@@ -1,0 +1,47 @@
+.slider {
+  position: relative;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+  outline-offset: 0;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.onBg .track {
+  background: var(--line);
+}
+
+.onInverse .track {
+  background: var(--track-on-inverse);
+}
+
+.fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+  transition: transform 120ms ease-out;
+}
+
+.slider:active .dot {
+  transform: translate(-50%, -50%) scale(1.35);
+}

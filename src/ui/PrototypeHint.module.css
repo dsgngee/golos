@@ -1,0 +1,15 @@
+.hint {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1.5px dashed var(--muted);
+  border-radius: var(--radius-control);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.hint:active {
+  color: var(--ink);
+  border-color: var(--ink);
+}

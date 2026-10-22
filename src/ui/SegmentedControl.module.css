@@ -1,0 +1,29 @@
+.group {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-control);
+  background: var(--line);
+}
+
+.option {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.checked {
+  background: var(--bg);
+}
+
+[data-theme='dark'] .checked,
+[data-theme='night'] .checked {
+  background: var(--surface-inverse);
+  color: var(--on-inverse);
+}
