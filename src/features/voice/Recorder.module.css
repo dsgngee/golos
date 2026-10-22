@@ -1,0 +1,119 @@
+.recorder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.pause {
+  min-height: 44px;
+  padding: 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.bar {
+  height: 2px;
+  margin-top: -8px;
+  background: var(--line);
+  border-radius: 1px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 300ms ease-out;
+}
+
+.phrase {
+  margin-top: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 220px;
+}
+
+.status {
+  min-height: 20px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.warning {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.clock {
+  font-family: var(--font-mono);
+  font-size: 48px;
+  letter-spacing: -0.04em;
+}
+
+.record {
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 14%, transparent);
+  transition: transform 120ms ease-out;
+}
+
+.record:active {
+  transform: scale(0.94);
+}
+
+.recording {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.stopIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  background: currentColor;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 16px color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+}

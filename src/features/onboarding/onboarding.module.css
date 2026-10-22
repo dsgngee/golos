@@ -1,0 +1,157 @@
+.step {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.navSpace {
+  height: 52px;
+  flex: none;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 24px 16px;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 24px calc(24px + env(safe-area-inset-bottom));
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-top: 24px;
+}
+
+.hero {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.list,
+.checks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid var(--ink);
+}
+
+.list li,
+.checks li {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-size);
+  color: var(--decor);
+}
+
+.check {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.creatingBar {
+  height: 2px;
+  margin-top: 24px;
+  background: var(--line);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.creatingBar span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  animation: fill linear forwards;
+}
+
+.sample {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: var(--radius-card);
+  background: var(--surface-inverse);
+  color: var(--on-inverse);
+}
+
+.sampleLine {
+  flex: 1;
+  min-width: 0;
+}
+
+.sampleLine [role='slider'] > div {
+  background: var(--track-on-inverse);
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -8px;
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-size);
+  color: var(--muted-on-inverse);
+}
+
+.hint {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+}

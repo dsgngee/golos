@@ -1,10 +1,10 @@
 import { useEffect, useSyncExternalStore } from 'react';
+import { OnboardingFlow } from '../features/onboarding/OnboardingFlow';
 import { Styleguide } from '../features/styleguide/Styleguide';
 import { useVoice } from '../store/voice';
 import styles from './App.module.css';
 import { MainShell } from './MainShell';
 import { PhoneFrame } from './PhoneFrame';
-import { Placeholder } from './screens';
 import { useResolvedTheme } from './useResolvedTheme';
 
 function useHash(): string {
@@ -35,7 +35,7 @@ export default function App() {
     );
   }
 
-  const content = !onboardingDone || setupActive ? <Placeholder name="onboarding" /> : <MainShell />;
+  const content = !onboardingDone || setupActive ? <OnboardingFlow /> : <MainShell />;
 
   return (
     <div data-testid="app-root" data-theme={theme} className={styles.root}>
