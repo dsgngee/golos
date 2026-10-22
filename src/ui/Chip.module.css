@@ -22,3 +22,8 @@
   border-color: var(--surface-inverse);
   color: var(--on-inverse);
 }
+
+[data-theme='night'] .selected {
+  border-color: var(--muted);
+  font-weight: 600;
+}

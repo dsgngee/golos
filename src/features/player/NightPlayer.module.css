@@ -1,0 +1,113 @@
+.night {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 24px calc(20px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--ink);
+  animation: dim 400ms ease-out;
+}
+
+.collapse {
+  align-self: center;
+  width: 64px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.timer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 260px;
+  text-align: center;
+}
+
+.timerLabel {
+  font-family: var(--font-mono);
+  font-size: var(--type-label-size);
+  letter-spacing: var(--type-label-ls);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.timerValue {
+  font-family: var(--font-mono);
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.fading {
+  font-size: 13px;
+  color: var(--accent-text);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -8px;
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-size);
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  margin: 14px 0 16px;
+  color: var(--ink);
+}
+
+.exit {
+  align-self: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--radius-round);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.exit:active {
+  color: var(--ink);
+}
+
+@keyframes dim {
+  from {
+    opacity: 0;
+  }
+}

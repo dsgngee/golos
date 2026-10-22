@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { FullPlayer } from '../features/player/FullPlayer';
 import { MiniPlayer } from '../features/player/MiniPlayer';
+import { NightPlayer } from '../features/player/NightPlayer';
 import { usePlaybackClock } from '../features/player/usePlaybackClock';
 import { usePlayer } from '../store/player';
 import { Banner } from '../ui/Banner';
@@ -17,6 +18,8 @@ export function MainShell() {
   const Screen = screens[top.name];
   const miniVisible = usePlayer((s) => s.currentId !== null && !s.expanded);
   const fullVisible = usePlayer((s) => s.currentId !== null && s.expanded && !s.nightMode);
+  // Spec 6.7: Die Nacht-Ansicht ist nur der Vollbild-Player; eingeklappt bleibt der Mini-Player.
+  const nightVisible = usePlayer((s) => s.currentId !== null && s.expanded && s.nightMode);
 
   // Richtung der Animation: tiefer = Push von rechts, flacher = Pop von links.
   const prev = useRef({ tab, depth: stack.length });
@@ -34,6 +37,7 @@ export function MainShell() {
       <MiniPlayer />
       <TabBar />
       {fullVisible && <FullPlayer />}
+      {nightVisible && <NightPlayer />}
       <Banner />
     </div>
   );

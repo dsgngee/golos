@@ -18,7 +18,9 @@ import { SkipButton } from '../../ui/SkipButton';
 import { TabBar } from '../../ui/TabBar';
 import { TextField } from '../../ui/TextField';
 import { Toggle } from '../../ui/Toggle';
+import { usePlayer } from '../../store/player';
 import { ContinueCard } from '../library/ContinueCard';
+import { NightPlayer } from '../player/NightPlayer';
 import styles from './Styleguide.module.css';
 
 // Beschriftungen auf Deutsch (für Designer und Entwickler), Beispielinhalte russisch.
@@ -151,6 +153,18 @@ function Board({ theme }: { theme: 'light' | 'dark' }) {
   );
 }
 
+function NightPreview() {
+  const current = usePlayer((s) => s.currentId);
+  return (
+    <div className={styles.row}>
+      <div className={styles.phoneBox}>{current ? <NightPlayer /> : null}</div>
+      <Button variant="outline" full={false} onClick={() => usePlayer.getState().open('kolobok', { expand: true })}>
+        Demo laden
+      </Button>
+    </div>
+  );
+}
+
 export function Styleguide() {
   return (
     <div className={styles.page} data-theme="light">
@@ -253,6 +267,11 @@ export function Styleguide() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Gute-Nacht-Player (Theme night)</h2>
+        <NightPreview />
       </section>
 
       <section className={styles.section}>
