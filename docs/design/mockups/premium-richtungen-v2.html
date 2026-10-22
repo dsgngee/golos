@@ -1,0 +1,209 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Golos+Text:wght@400;500;600&family=Onest:wght@400;500;600;800&family=Unbounded:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.dirs { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.25rem; }
+.dirs .card-image { aspect-ratio: auto; padding: 30px 0; background: #1c1c1e; }
+.note { margin-top: 1.25rem; font-size: .85rem; color: var(--text-secondary); }
+
+.phone { width: 300px; height: 640px; border-radius: 46px; overflow: hidden; position: relative; display: flex; flex-direction: column; text-align: left;
+  box-shadow: 0 0 0 9px #0a0a0a, 0 0 0 10px #3a3a3c, 0 30px 60px rgba(0,0,0,.45); }
+.phone * { box-sizing: border-box; margin: 0; padding: 0; }
+.phone svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sb { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px 0 30px; height: 46px; font: 600 13px/1 -apple-system, system-ui, sans-serif; position: relative; }
+.sb .isl { position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 92px; height: 27px; background: #000; border-radius: 20px; }
+.sb .bat { width: 23px; height: 11px; border: 1.5px solid currentColor; border-radius: 3px; position: relative; opacity: .9; }
+.sb .bat::after { content: ''; position: absolute; top: 1.5px; bottom: 1.5px; left: 1.5px; right: 5px; background: currentColor; border-radius: 1px; }
+.scr { flex: 1; overflow: hidden; padding: 6px 20px 0; }
+.tabs { display: flex; justify-content: space-around; padding: 10px 8px 24px; }
+.tabs div { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; }
+.wave { display: flex; align-items: center; gap: 2px; }
+.wave i { display: block; width: 3px; border-radius: 2px; }
+
+/* ===== A · Вечер (Editorial Noir) ===== */
+.pa { background: #0F0E0C; color: #EFE8DA; font-family: 'Golos Text', sans-serif; }
+.pa .kick { font-size: 10px; letter-spacing: .14em; color: #8E877A; text-transform: uppercase; margin-top: 12px; }
+.pa h1 { font: 500 40px/1.02 'Cormorant Garamond', serif; margin: 6px 0 18px; }
+.pa .cont { border: 1px solid #2C2925; border-radius: 18px; padding: 16px; background: #171512; }
+.pa .lbl { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #C9A66B; }
+.pa .ct { font: italic 500 27px/1.1 'Cormorant Garamond', serif; margin: 8px 0 3px; }
+.pa .meta { font-size: 12px; color: #8E877A; }
+.pa .prog { height: 2px; background: #2C2925; border-radius: 2px; margin: 14px 0 12px; }
+.pa .prog b { display: block; height: 100%; width: 68%; background: #C9A66B; }
+.pa .row { display: flex; justify-content: space-between; align-items: center; }
+.pa .playb { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #C9A66B; color: #C9A66B; display: flex; align-items: center; justify-content: center; }
+.pa .playb svg { width: 15px; height: 15px; fill: currentColor; stroke: none; margin-left: 2px; }
+.pa .new { margin: 14px 0 18px; padding: 13px 16px; border: 1px solid #2C2925; border-radius: 14px; display: flex; gap: 12px; align-items: center; }
+.pa .new .pl { width: 30px; height: 30px; border-radius: 50%; background: #C9A66B; color: #0F0E0C; display: flex; align-items: center; justify-content: center; font-size: 20px; line-height: 1; flex: none; }
+.pa .new b { display: block; font-weight: 500; font-size: 14px; }
+.pa .new span { font-size: 11px; color: #8E877A; }
+.pa .sec { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8E877A; margin-bottom: 4px; }
+.pa .it { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 10px 0; border-top: 1px solid #24221E; }
+.pa .it b { font: 600 19px/1.15 'Cormorant Garamond', serif; display: block; }
+.pa .it span { font-size: 11px; color: #8E877A; }
+.pa .it em { font-style: normal; font-size: 11px; color: #8E877A; white-space: nowrap; }
+.pa .tabs { border-top: 1px solid #24221E; color: #6F695E; }
+.pa .tabs .on { color: #C9A66B; }
+
+/* ===== B · Студия (Hi-Fi hell) ===== */
+.pb { background: #F1EFEA; color: #121212; font-family: 'Onest', sans-serif; }
+.pb .top { display: flex; justify-content: space-between; align-items: flex-end; margin: 14px 0 16px; }
+.pb h1 { font: 800 33px/1 'Onest', sans-serif; letter-spacing: -.035em; }
+.pb .cnt { font: 500 11px 'JetBrains Mono', monospace; color: #77736B; padding-bottom: 3px; }
+.pb .now { background: #121212; color: #F1EFEA; border-radius: 22px; padding: 16px; }
+.pb .now .lbl { font: 500 10px 'JetBrains Mono', monospace; color: #E2461F; letter-spacing: .06em; }
+.pb .now h3 { font: 600 20px/1.15 'Onest', sans-serif; margin: 6px 0 2px; letter-spacing: -.015em; }
+.pb .now .meta { font-size: 12px; color: #9A968E; }
+.pb .wave { margin: 14px 0 10px; height: 40px; }
+.pb .wave i { background: #3A3936; }
+.pb .wave i.on { background: #E2461F; }
+.pb .tc { display: flex; justify-content: space-between; align-items: center; font: 500 11px 'JetBrains Mono', monospace; color: #9A968E; }
+.pb .pbtn { width: 44px; height: 44px; border-radius: 50%; background: #E2461F; color: #fff; display: flex; align-items: center; justify-content: center; }
+.pb .pbtn svg { width: 16px; height: 16px; fill: currentColor; stroke: none; margin-left: 2px; }
+.pb .new { margin: 12px 0 14px; display: flex; justify-content: space-between; align-items: center; padding: 13px 16px; border: 1.5px solid #121212; border-radius: 16px; font-weight: 600; font-size: 15px; letter-spacing: -.01em; }
+.pb .new span { font: 500 24px/1 'Onest', sans-serif; color: #E2461F; }
+.pb .it { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: baseline; padding: 10px 0; border-top: 1px solid #DAD6CE; }
+.pb .it .n { font: 500 11px 'JetBrains Mono', monospace; color: #A39F96; }
+.pb .it b { font-weight: 600; font-size: 14px; display: block; letter-spacing: -.01em; line-height: 1.25; }
+.pb .it span { font-size: 11px; color: #77736B; }
+.pb .it em { font: 500 11px 'JetBrains Mono', monospace; font-style: normal; color: #77736B; }
+.pb .tabs { margin: 0 14px 20px; padding: 10px 6px; background: #121212; color: #77736B; border-radius: 22px; }
+.pb .tabs .on { color: #F1EFEA; }
+
+/* ===== C · Тембр (tiefe Farbe, Stimme im Zentrum) ===== */
+.pc { background: #0E1A16; color: #E9E4D6; font-family: 'Golos Text', sans-serif; }
+.pc h1 { font: 500 23px/1.1 'Unbounded', sans-serif; margin: 14px 0 4px; letter-spacing: -.01em; }
+.pc .sub { font-size: 12px; color: #8A9A92; }
+.pc .voice { margin: 16px 0 16px; border-radius: 24px; padding: 18px 16px 16px; background: radial-gradient(120% 90% at 50% 0%, #1F362D 0%, #14241E 70%); border: 1px solid #223C33; }
+.pc .voice .wave { justify-content: center; height: 96px; gap: 3px; }
+.pc .voice .wave i { width: 4px; background: linear-gradient(#EDB08A, #B5653C); }
+.pc .vrow { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; }
+.pc .vrow b { font: 500 13px 'Unbounded', sans-serif; }
+.pc .vrow span { display: block; font-size: 11px; color: #8A9A92; margin-top: 4px; line-height: 1.35; }
+.pc .vrow .chip { margin-top: 0; display: inline-block; font-size: 12px; padding: 9px 13px; border-radius: 20px; background: #D9925F; color: #0E1A16; font-weight: 600; white-space: nowrap; }
+.pc .sec { font: 500 11px 'Unbounded', sans-serif; color: #8A9A92; margin-bottom: 8px; }
+.pc .cont { display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 18px; background: #15251F; margin-bottom: 14px; }
+.pc .cont .cover { width: 46px; height: 46px; border-radius: 12px; background: #D9925F; color: #0E1A16; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 600; flex: none; }
+.pc .cont b { display: block; font-weight: 600; font-size: 14px; }
+.pc .cont span { font-size: 11px; color: #8A9A92; }
+.pc .cont .grow { flex: 1; }
+.pc .cont .pp { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #3A5A4E; color: #E9E4D6; display: flex; align-items: center; justify-content: center; flex: none; }
+.pc .cont .pp svg { width: 13px; height: 13px; fill: currentColor; stroke: none; margin-left: 2px; }
+.pc .it { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 10px 0; border-top: 1px solid #1E3029; }
+.pc .it b { font-weight: 500; font-size: 14px; display: block; }
+.pc .it span { font-size: 11px; color: #8A9A92; }
+.pc .it em { font-style: normal; font-size: 11px; color: #8A9A92; white-space: nowrap; }
+.pc .tabs { color: #5F7469; border-top: 1px solid #1E3029; }
+.pc .tabs .on { color: #E7A57E; }
+</style>
+
+<h2>Welche Premium-Richtung passt zu golos?</h2>
+<p class="subtitle">Drei Interpretationen von „Premium &amp; hochwertig“ – gleicher Inhalt (Startseite mit Bibliothek), andere Gestaltung. Klick deine Favoritin an; Mischungen („Farben von A, Schrift von B“) sind ausdrücklich erlaubt.</p>
+
+<div class="cards dirs">
+
+  <!-- ================= A ================= -->
+  <div class="card" data-choice="a-vecher" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone pa">
+        <div class="sb"><span>9:41</span><span class="isl"></span><span class="bat"></span></div>
+        <div class="scr">
+          <p class="kick">Среда, 21 октября</p>
+          <h1>Добрый вечер</h1>
+          <div class="cont">
+            <p class="lbl">Продолжить</p>
+            <p class="ct">В метро: диалог</p>
+            <p class="meta">Китайский язык · урок 4</p>
+            <div class="prog"><b></b></div>
+            <div class="row"><span class="meta">Осталось 6 мин</span><span class="playb"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span></div>
+          </div>
+          <div class="new"><span class="pl">+</span><div><b>Озвучить текст</b><span>Вставьте текст, ссылку или PDF</span></div></div>
+          <p class="sec">Недавние</p>
+          <div class="it"><div><b>Психология общения</b><span>Книга</span></div><em>4 ч 12 мин</em></div>
+          <div class="it"><div><b>Сенсорная интеграция при аутизме</b><span>Статья</span></div><em>18 мин</em></div>
+          <div class="it"><div><b>Колобок</b><span>Сказка</span></div><em>7 мин</em></div>
+        </div>
+        <div class="tabs">
+          <div class="on"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg>Библиотека</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Озвучить</div>
+          <div><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Голос</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Профиль</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · «Вечер» – Editorial Noir</h3>
+      <p>Wie ein edler Buchverlag bei Nacht: fast Schwarz, Elfenbein, ein Messing-Akzent, klassische Serifenschrift (Cormorant Garamond) für Titel. Ruhig, literarisch, zeitlos – Bücher und Texte stehen im Vordergrund.</p>
+    </div>
+  </div>
+
+  <!-- ================= B ================= -->
+  <div class="card" data-choice="b-studiya" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone pb">
+        <div class="sb"><span>9:41</span><span class="isl"></span><span class="bat"></span></div>
+        <div class="scr">
+          <div class="top"><h1>Библиотека</h1><span class="cnt">24 записи</span></div>
+          <div class="now">
+            <p class="lbl">ПРОДОЛЖИТЬ</p>
+            <h3>В метро: диалог</h3>
+            <p class="meta">Китайский язык · урок 4</p>
+            <div class="wave">
+              <i class="on" style="height:8px"></i><i class="on" style="height:14px"></i><i class="on" style="height:22px"></i><i class="on" style="height:12px"></i><i class="on" style="height:30px"></i><i class="on" style="height:18px"></i><i class="on" style="height:26px"></i><i class="on" style="height:10px"></i><i class="on" style="height:34px"></i><i class="on" style="height:20px"></i><i class="on" style="height:14px"></i><i class="on" style="height:28px"></i><i class="on" style="height:38px"></i><i class="on" style="height:24px"></i><i class="on" style="height:16px"></i><i class="on" style="height:30px"></i><i class="on" style="height:12px"></i><i class="on" style="height:22px"></i><i class="on" style="height:36px"></i><i class="on" style="height:18px"></i><i class="on" style="height:26px"></i><i class="on" style="height:14px"></i><i class="on" style="height:32px"></i><i class="on" style="height:20px"></i><i class="on" style="height:10px"></i><i class="on" style="height:24px"></i><i class="on" style="height:30px"></i><i class="on" style="height:16px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:28px"></i><i style="height:18px"></i><i style="height:8px"></i><i style="height:20px"></i><i style="height:26px"></i><i style="height:14px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:24px"></i><i style="height:12px"></i><i style="height:16px"></i><i style="height:8px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:10px"></i><i style="height:6px"></i>
+            </div>
+            <div class="tc"><span>12:41 / 18:20</span><span class="pbtn"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span></div>
+          </div>
+          <div class="new">Озвучить текст<span>+</span></div>
+          <div class="it"><span class="n">01</span><div><b>Психология общения</b><span>Книга</span></div><em>4:12:05</em></div>
+          <div class="it"><span class="n">02</span><div><b>Сенсорная интеграция при аутизме</b><span>Статья</span></div><em>18:40</em></div>
+          <div class="it"><span class="n">03</span><div><b>Колобок</b><span>Сказка</span></div><em>07:12</em></div>
+        </div>
+        <div class="tabs">
+          <div class="on"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg>Библиотека</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Озвучить</div>
+          <div><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Голос</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Профиль</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · «Студия» – Hi-Fi hell</h3>
+      <p>Wie ein hochwertiges Audiogerät: warmes Papierweiß, tiefes Schwarz, ein einziges Signal-Orange, kräftige Grotesk (Onest) und Timecodes in Monospace. Präzise, selbstbewusst, werkzeughaft – aber edel.</p>
+    </div>
+  </div>
+
+  <!-- ================= C ================= -->
+  <div class="card" data-choice="c-tembr" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone pc">
+        <div class="sb"><span>9:41</span><span class="isl"></span><span class="bat"></span></div>
+        <div class="scr">
+          <h1>Добрый вечер</h1>
+          <p class="sub">Сегодня вы слушали 47 минут</p>
+          <div class="voice">
+            <div class="wave">
+              <i style="height:10px"></i><i style="height:16px"></i><i style="height:12px"></i><i style="height:24px"></i><i style="height:20px"></i><i style="height:34px"></i><i style="height:28px"></i><i style="height:46px"></i><i style="height:38px"></i><i style="height:60px"></i><i style="height:52px"></i><i style="height:74px"></i><i style="height:64px"></i><i style="height:88px"></i><i style="height:70px"></i><i style="height:92px"></i><i style="height:80px"></i><i style="height:90px"></i><i style="height:66px"></i><i style="height:84px"></i><i style="height:58px"></i><i style="height:72px"></i><i style="height:48px"></i><i style="height:60px"></i><i style="height:40px"></i><i style="height:50px"></i><i style="height:30px"></i><i style="height:36px"></i><i style="height:22px"></i><i style="height:26px"></i><i style="height:14px"></i><i style="height:10px"></i>
+            </div>
+            <div class="vrow"><div><b>Ваш голос · 92 %</b><span>Ещё 5 минут записи —<br>и звучание станет точнее</span></div><span class="chip">Дописать</span></div>
+          </div>
+          <p class="sec">Продолжить</p>
+          <div class="cont"><span class="cover">中</span><div class="grow"><b>В метро: диалог</b><span>Китайский · осталось 6 мин</span></div><span class="pp"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span></div>
+          <div class="it"><div><b>Сенсорная интеграция при аутизме</b><span>Статья</span></div><em>18 мин</em></div>
+          <div class="it"><div><b>Колобок</b><span>Сказка</span></div><em>7 мин</em></div>
+        </div>
+        <div class="tabs">
+          <div class="on"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg>Библиотека</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Озвучить</div>
+          <div><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Голос</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Профиль</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · «Тембр» – Tiefe Farbe</h3>
+      <p>Die eigene Stimme als Herzstück: tiefes Grün-Schwarz, Kupfer, breite Display-Schrift (Unbounded) und eine große Stimm-Wellenform mit Fortschritt der Stimmqualität. Modern, technologisch, emotional.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="note">Alle Schriften haben vollständiges Kyrillisch. Es geht um die Richtung – Farben, Schrift, Grundton –, nicht um Details oder die genaue Screen-Struktur.</p>

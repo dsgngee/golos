@@ -1,0 +1,218 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Geologica:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.dirs { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.25rem; }
+.dirs .card-image { aspect-ratio: auto; padding: 30px 0; background: #1c1c1e; }
+.note { margin-top: 1.25rem; font-size: .85rem; color: var(--text-secondary); }
+
+.phone { width: 300px; height: 640px; border-radius: 46px; overflow: hidden; position: relative; display: flex; flex-direction: column; text-align: left;
+  box-shadow: 0 0 0 9px #0a0a0a, 0 0 0 10px #3a3a3c, 0 30px 60px rgba(0,0,0,.45); }
+.phone * { box-sizing: border-box; margin: 0; padding: 0; }
+.phone svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sb { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px 0 30px; height: 46px; font: 600 13px/1 -apple-system, system-ui, sans-serif; position: relative; }
+.sb .isl { position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 92px; height: 27px; background: #000; border-radius: 20px; }
+.sb .bat { width: 23px; height: 11px; border: 1.5px solid currentColor; border-radius: 3px; position: relative; opacity: .9; }
+.sb .bat::after { content: ''; position: absolute; top: 1.5px; bottom: 1.5px; left: 1.5px; right: 5px; background: currentColor; border-radius: 1px; }
+.scr { flex: 1; overflow: hidden; padding: 6px 20px 0; }
+.tabs { display: flex; justify-content: space-around; padding: 10px 8px 24px; }
+.tabs div { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; }
+.wave { display: flex; align-items: center; gap: 2px; }
+.wave i { display: block; width: 3px; border-radius: 2px; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ============ B1 · Пульт (Gerät) ============ */
+.b1 { background: #EEECE6; color: #111; font-family: 'Onest', sans-serif; }
+.b1 .hd { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font: 500 10px 'JetBrains Mono', monospace; color: #7A766E; letter-spacing: .06em; }
+.b1 .av { width: 28px; height: 28px; border-radius: 50%; background: #111; color: #EEECE6; display: flex; align-items: center; justify-content: center; font: 600 11px 'Onest', sans-serif; letter-spacing: 0; }
+.b1 h1 { font: 800 33px/1 'Onest', sans-serif; letter-spacing: -.035em; margin: 10px 0 14px; }
+.b1 .dev { background: #E2DFD8; border: 1px solid #D4D0C7; border-radius: 24px; padding: 16px; }
+.b1 .dev .lbl { font: 500 10px 'JetBrains Mono', monospace; color: #E2461F; letter-spacing: .06em; }
+.b1 .dev .t { display: flex; align-items: baseline; gap: 6px; margin-top: 8px; }
+.b1 .dev .t b { font: 500 42px/1 'JetBrains Mono', monospace; letter-spacing: -.05em; }
+.b1 .dev .t span { font: 500 12px 'JetBrains Mono', monospace; color: #7A766E; }
+.b1 .dev h3 { font: 600 16px/1.2 'Onest', sans-serif; margin: 10px 0 2px; letter-spacing: -.01em; }
+.b1 .dev .meta { font-size: 11px; color: #7A766E; }
+.b1 .tape { position: relative; height: 22px; margin: 14px 0; background-image: repeating-linear-gradient(90deg, #111 0 1.5px, transparent 1.5px 36px), repeating-linear-gradient(90deg, #A8A49B 0 1px, transparent 1px 6px); background-size: 100% 100%, 100% 55%; background-position: 0 0, 0 50%; background-repeat: repeat-x; }
+.b1 .tape b { position: absolute; left: 0; top: 0; bottom: 0; width: 68%; background-image: repeating-linear-gradient(90deg, #E2461F 0 1.5px, transparent 1.5px 6px); background-size: 100% 55%; background-position: 0 50%; background-repeat: repeat-x; }
+.b1 .tape i { position: absolute; left: 68%; top: -5px; bottom: -5px; width: 2px; background: #111; border-radius: 1px; }
+.b1 .ctl { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; }
+.b1 .ctl div { height: 46px; border-radius: 14px; background: #EEECE6; border: 1px solid #CFCBC2; display: flex; align-items: center; justify-content: center; font: 500 12px 'JetBrains Mono', monospace; box-shadow: 0 1px 0 #fff inset, 0 2px 0 #C9C5BC; }
+.b1 .ctl .pl { background: #E2461F; color: #fff; border: none; box-shadow: 0 2px 0 #A9300F; }
+.b1 .ctl .pl svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+.b1 .new { margin: 12px 0 8px; display: flex; align-items: center; justify-content: space-between; padding: 13px 14px 13px 16px; background: #111; color: #EEECE6; border-radius: 16px; font-weight: 600; font-size: 15px; letter-spacing: -.01em; }
+.b1 .new span { width: 26px; height: 26px; border-radius: 8px; background: #E2461F; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; }
+.b1 .it { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: baseline; padding: 10px 0; border-top: 1px solid #D6D2C9; }
+.b1 .it .n { font: 500 11px 'JetBrains Mono', monospace; color: #A39F96; }
+.b1 .it b { font-weight: 600; font-size: 14px; display: block; letter-spacing: -.01em; line-height: 1.25; }
+.b1 .it .k { font-size: 11px; color: #77736B; }
+.b1 .it em { font: 500 11px 'JetBrains Mono', monospace; font-style: normal; color: #77736B; }
+.b1 .tabs { border-top: 1px solid #D6D2C9; color: #9A968E; }
+.b1 .tabs .on { color: #111; }
+
+/* ============ B2 · Ночь (dunkel) ============ */
+.b2 { background: #131313; color: #ECEAE4; font-family: 'Onest', sans-serif; }
+.b2 .top { display: flex; justify-content: space-between; align-items: flex-end; margin: 14px 0 16px; }
+.b2 h1 { font: 800 33px/1 'Onest', sans-serif; letter-spacing: -.035em; }
+.b2 .cnt { font: 500 11px 'JetBrains Mono', monospace; color: #7D7A73; padding-bottom: 3px; }
+.b2 .now { background: #ECEAE4; color: #131313; border-radius: 22px; padding: 16px; }
+.b2 .now .lbl { font: 500 10px 'JetBrains Mono', monospace; color: #E2461F; letter-spacing: .06em; }
+.b2 .now h3 { font: 600 20px/1.15 'Onest', sans-serif; margin: 6px 0 2px; letter-spacing: -.015em; }
+.b2 .now .meta { font-size: 12px; color: #6E6B64; }
+.b2 .wave { margin: 14px 0 10px; height: 40px; }
+.b2 .wave i { background: #C9C6BE; }
+.b2 .wave i.on { background: #E2461F; }
+.b2 .tc { display: flex; justify-content: space-between; align-items: center; font: 500 11px 'JetBrains Mono', monospace; color: #6E6B64; }
+.b2 .pbtn { width: 44px; height: 44px; border-radius: 50%; background: #131313; color: #ECEAE4; display: flex; align-items: center; justify-content: center; }
+.b2 .pbtn svg { width: 16px; height: 16px; fill: currentColor; stroke: none; margin-left: 2px; }
+.b2 .new { margin: 12px 0 14px; display: flex; justify-content: space-between; align-items: center; padding: 13px 16px; border: 1.5px solid #3A3936; border-radius: 16px; font-weight: 600; font-size: 15px; letter-spacing: -.01em; }
+.b2 .new span { font: 500 24px/1 'Onest', sans-serif; color: #FF5B2E; }
+.b2 .it { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: baseline; padding: 10px 0; border-top: 1px solid #262624; }
+.b2 .it .n { font: 500 11px 'JetBrains Mono', monospace; color: #5A5853; }
+.b2 .it b { font-weight: 600; font-size: 14px; display: block; letter-spacing: -.01em; line-height: 1.25; }
+.b2 .it .k { font-size: 11px; color: #7D7A73; }
+.b2 .it em { font: 500 11px 'JetBrains Mono', monospace; font-style: normal; color: #7D7A73; }
+.b2 .tabs { margin: 0 14px 20px; padding: 10px 6px; background: #ECEAE4; color: #8A877F; border-radius: 22px; }
+.b2 .tabs .on { color: #131313; }
+
+/* ============ B3 · Бумага (Editorial) ============ */
+.b3 { background: #F5F2EA; color: #18181A; font-family: 'Geologica', sans-serif; }
+.b3 .hd { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14px; }
+.b3 h1 { font: 600 30px/1.05 'Geologica', sans-serif; letter-spacing: -.035em; }
+.b3 .cnt { font: 500 11px 'JetBrains Mono', monospace; color: #807C73; padding-bottom: 3px; }
+.b3 .sec { display: flex; justify-content: space-between; font: 500 10px 'JetBrains Mono', monospace; color: #807C73; letter-spacing: .08em; margin: 22px 0 8px; padding-top: 8px; border-top: 1.5px solid #18181A; }
+.b3 .ct { font: 600 27px/1.06 'Geologica', sans-serif; letter-spacing: -.03em; }
+.b3 .meta { font-size: 12px; color: #807C73; margin-top: 5px; }
+.b3 .line { position: relative; height: 2px; background: #DCD7CC; margin: 18px 0 8px; }
+.b3 .line b { position: absolute; left: 0; top: 0; bottom: 0; width: 68%; background: #2B45D9; }
+.b3 .line i { position: absolute; left: 68%; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: #2B45D9; transform: translate(-50%, -50%); }
+.b3 .tc { display: flex; justify-content: space-between; font: 500 11px 'JetBrains Mono', monospace; color: #807C73; }
+.b3 .ctl { display: flex; align-items: center; justify-content: center; gap: 30px; margin: 10px 0 0; }
+.b3 .ctl .sk { font: 500 12px 'JetBrains Mono', monospace; color: #18181A; }
+.b3 .ctl .pl { width: 58px; height: 58px; border-radius: 50%; background: #2B45D9; color: #fff; display: flex; align-items: center; justify-content: center; }
+.b3 .ctl .pl svg { width: 18px; height: 18px; fill: currentColor; stroke: none; margin-left: 3px; }
+.b3 .new { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; margin-top: 16px; border-top: 1px solid #DCD7CC; border-bottom: 1px solid #DCD7CC; font-weight: 600; font-size: 15px; letter-spacing: -.01em; }
+.b3 .new span { color: #2B45D9; font-size: 22px; line-height: 1; font-weight: 400; }
+.b3 .it { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 11px 0; border-bottom: 1px solid #DCD7CC; }
+.b3 .it b { font-weight: 500; font-size: 15px; display: block; letter-spacing: -.015em; line-height: 1.25; }
+.b3 .it .k { font-size: 11px; color: #807C73; }
+.b3 .it em { font: 500 11px 'JetBrains Mono', monospace; font-style: normal; color: #807C73; white-space: nowrap; }
+.b3 .tabs { border-top: 1px solid #DCD7CC; color: #A39E92; }
+.b3 .tabs .on { color: #18181A; }
+</style>
+
+<h2>Drei Varianten von B «Студия»</h2>
+<p class="subtitle">Die DNA bleibt: Hi-Fi-Gefühl, Papierweiß/Schwarz, ein Akzent, Grotesk + Monospace-Timecodes. Jede Variante dreht an einer anderen Schraube – Gerätecharakter, Dunkelmodus, Typografie &amp; Akzentfarbe.</p>
+
+<div class="cards dirs">
+
+  <!-- ================= B1 ================= -->
+  <div class="card" data-choice="b1-pult" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone b1">
+        <div class="sb"><span>9:41</span><span class="isl"></span><span class="bat"></span></div>
+        <div class="scr">
+          <div class="hd"><span>СР · 21.10</span><span class="av">А</span></div>
+          <h1>Библиотека</h1>
+          <div class="dev">
+            <p class="lbl">● ПРОДОЛЖИТЬ</p>
+            <div class="t"><b>12:41</b><span>/ 18:20</span></div>
+            <h3>В метро: диалог</h3>
+            <p class="meta">Китайский язык · урок 4</p>
+            <div class="tape"><b></b><i></i></div>
+            <div class="ctl">
+              <div>−15</div>
+              <div class="pl"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></div>
+              <div>+15</div>
+            </div>
+          </div>
+          <div class="new">Озвучить текст<span>+</span></div>
+          <div class="it"><span class="n">01</span><div><b>Психология общения</b><span class="k">Книга</span></div><em>4:12:05</em></div>
+          <div class="it"><span class="n">02</span><div><b>Колобок</b><span class="k">Сказка</span></div><em>07:12</em></div>
+        </div>
+        <div class="tabs">
+          <div class="on"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg>Библиотека</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Озвучить</div>
+          <div><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Голос</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Профиль</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B1 · «Пульт» – mehr Gerät</h3>
+      <p>Die Startseite als Bedienpult: großer Timecode, Tonband-Skala statt Wellenform, Tasten mit leichter physischer Kante. Am nächsten an Hi-Fi-Hardware (Braun, Teenage Engineering).</p>
+    </div>
+  </div>
+
+  <!-- ================= B2 ================= -->
+  <div class="card" data-choice="b2-noch" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone b2">
+        <div class="sb"><span>9:41</span><span class="isl"></span><span class="bat"></span></div>
+        <div class="scr">
+          <div class="top"><h1>Библиотека</h1><span class="cnt">24 записи</span></div>
+          <div class="now">
+            <p class="lbl">ПРОДОЛЖИТЬ</p>
+            <h3>В метро: диалог</h3>
+            <p class="meta">Китайский язык · урок 4</p>
+            <div class="wave">
+              <i class="on" style="height:8px"></i><i class="on" style="height:14px"></i><i class="on" style="height:22px"></i><i class="on" style="height:12px"></i><i class="on" style="height:30px"></i><i class="on" style="height:18px"></i><i class="on" style="height:26px"></i><i class="on" style="height:10px"></i><i class="on" style="height:34px"></i><i class="on" style="height:20px"></i><i class="on" style="height:14px"></i><i class="on" style="height:28px"></i><i class="on" style="height:38px"></i><i class="on" style="height:24px"></i><i class="on" style="height:16px"></i><i class="on" style="height:30px"></i><i class="on" style="height:12px"></i><i class="on" style="height:22px"></i><i class="on" style="height:36px"></i><i class="on" style="height:18px"></i><i class="on" style="height:26px"></i><i class="on" style="height:14px"></i><i class="on" style="height:32px"></i><i class="on" style="height:20px"></i><i class="on" style="height:10px"></i><i class="on" style="height:24px"></i><i class="on" style="height:30px"></i><i class="on" style="height:16px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:28px"></i><i style="height:18px"></i><i style="height:8px"></i><i style="height:20px"></i><i style="height:26px"></i><i style="height:14px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:24px"></i><i style="height:12px"></i><i style="height:16px"></i><i style="height:8px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:10px"></i><i style="height:6px"></i>
+            </div>
+            <div class="tc"><span>12:41 / 18:20</span><span class="pbtn"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span></div>
+          </div>
+          <div class="new">Озвучить текст<span>+</span></div>
+          <div class="it"><span class="n">01</span><div><b>Психология общения</b><span class="k">Книга</span></div><em>4:12:05</em></div>
+          <div class="it"><span class="n">02</span><div><b>Сенсорная интеграция при аутизме</b><span class="k">Статья</span></div><em>18:40</em></div>
+          <div class="it"><span class="n">03</span><div><b>Колобок</b><span class="k">Сказка</span></div><em>07:12</em></div>
+        </div>
+        <div class="tabs">
+          <div class="on"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg>Библиотека</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Озвучить</div>
+          <div><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Голос</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Профиль</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B2 · «Ночь» – dunkel</h3>
+      <p>Dasselbe System im Dunkelmodus, die wichtigen Flächen invertiert in Papierweiß. Wirkt abends und vor dem Einschlafen ruhiger – zeigt zugleich, wie ein Dark Mode von B aussähe.</p>
+    </div>
+  </div>
+
+  <!-- ================= B3 ================= -->
+  <div class="card" data-choice="b3-bumaga" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone b3">
+        <div class="sb"><span>9:41</span><span class="isl"></span><span class="bat"></span></div>
+        <div class="scr">
+          <div class="hd"><h1>Библиотека</h1><span class="cnt">24 записи</span></div>
+          <p class="sec"><span>ПРОДОЛЖИТЬ</span><span>04 / 12</span></p>
+          <p class="ct">В метро: диалог</p>
+          <p class="meta">Китайский язык · урок 4</p>
+          <div class="line"><b></b><i></i></div>
+          <div class="tc"><span>12:41</span><span>−05:39</span></div>
+          <div class="ctl">
+            <span class="sk">−15</span>
+            <span class="pl"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+            <span class="sk">+15</span>
+          </div>
+          <div class="new">Озвучить текст<span>+</span></div>
+          <div class="it"><div><b>Психология общения</b><span class="k">Книга</span></div><em>4 ч 12 мин</em></div>
+          <div class="it"><div><b>Сенсорная интеграция при аутизме</b><span class="k">Статья</span></div><em>18 мин</em></div>
+        </div>
+        <div class="tabs">
+          <div class="on"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg>Библиотека</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Озвучить</div>
+          <div><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Голос</div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Профиль</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B3 · «Бумага» – Editorial</h3>
+      <p>Weniger Gerät, mehr Typografie: cremiges Papier, keine schwarzen Flächen, große Titel, dünne Linien. Akzent Kobaltblau statt Orange, Schrift Geologica statt Onest.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="note">Alles ist kombinierbar – z. B. „Bedienpult von B1, aber mit Dark Mode wie B2“ oder „B3 mit Orange statt Blau“.</p>

@@ -1,7 +1,7 @@
 # Anti-Slop- und Qualitätsprüfung – golos Prototyp
 
 **Datum:** 2026-10-22 · **Grundlage:** `.claude/skills/avoiding-ai-website-slop` (Gold-Standard-Loop, Copy-Checkliste), `ui-ux-pro-max`-Regeln für iOS/Mobile
-**Gold-Standard:** `.superpowers/brainstorm/3225-1792574096/content/studiya-player-v2.html`, rechter Entwurf (vom Designer gewählt)
+**Gold-Standard:** `docs/design/mockups/studiya-player-v2.html`, rechter Entwurf (vom Designer gewählt)
 **Screenshots:** `review/screenshots/iphone-390-chromium/` (typografisch maßgeblich), dazu `iphone-375/` und `iphone-430/` (WebKit)
 
 ## Automatische Prüfung (`e2e/quality.spec.ts`)
