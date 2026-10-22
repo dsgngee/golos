@@ -3,7 +3,9 @@ import { GeneratingScreen } from '../features/create/GeneratingScreen';
 import { OptionsScreen } from '../features/create/OptionsScreen';
 import { ReviewScreen } from '../features/create/ReviewScreen';
 import { SourceScreen } from '../features/create/SourceScreen';
+import { FolderScreen } from '../features/library/FolderScreen';
 import { LibraryHome } from '../features/library/LibraryHome';
+import { SearchScreen } from '../features/library/SearchScreen';
 import type { ScreenName } from './navigation';
 
 export type ScreenProps = { params?: Record<string, string> };
@@ -23,8 +25,8 @@ const placeholder = (name: string): ComponentType<ScreenProps> =>
 
 export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
   'library.home': LibraryHome,
-  'library.search': placeholder('library.search'),
-  'library.folder': placeholder('library.folder'),
+  'library.search': SearchScreen,
+  'library.folder': FolderScreen,
   'library.edit': placeholder('library.edit'),
   'create.source': SourceScreen,
   'create.review': ReviewScreen,

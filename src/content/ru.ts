@@ -110,6 +110,28 @@ export const t = {
     readyBody: (title: string) => `«${title}» можно слушать`,
     translatedMeta: (lang: string) => `Перевод с русского · ${lang}`,
   },
+  search: {
+    title: 'Все записи',
+    field: 'Поиск',
+    placeholder: 'Название, тег или тема',
+    types: 'Тип',
+    folders: 'Папки',
+    tags: 'Теги',
+    sort: 'Сортировка',
+    sortBy: {
+      recent: 'Недавние',
+      title: 'По названию',
+      duration: 'По длительности',
+    },
+    found: (n: number) => `Найдено: ${countLabel(n, FORMS.recording)}`,
+    noneTitle: 'Ничего не найдено',
+    noneBody: 'Попробуйте другой запрос или сбросьте фильтры.',
+    reset: 'Сбросить фильтры',
+  },
+  folderScreen: {
+    emptyTitle: 'В этой папке пока пусто',
+    emptyBody: 'Добавьте сюда записи через меню «…» у записи.',
+  },
   tags: {
     label: 'Теги',
     add: 'Добавить',
