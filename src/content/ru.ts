@@ -52,4 +52,19 @@ export const t = {
     finished: 'Прослушано',
     generating: (percent: number) => `Озвучивается… ${percent} %`,
   },
+  library: {
+    title: 'Библиотека',
+    search: 'Поиск',
+    continue: 'Продолжить',
+    create: 'Озвучить текст',
+    recent: 'Недавние',
+    all: 'Все записи',
+    voiceMissing: 'Голос ещё не настроен',
+    setup: 'Настроить',
+    emptyTitle: 'Здесь появятся ваши записи',
+    emptyBody: 'Вставьте текст, загрузите PDF или ссылку — и слушайте своим голосом.',
+  },
+  mini: {
+    open: 'Открыть плеер',
+  },
 } as const;

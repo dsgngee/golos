@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react';
+import { LibraryHome } from '../features/library/LibraryHome';
 import type { ScreenName } from './navigation';
 
 export type ScreenProps = { params?: Record<string, string> };
@@ -17,7 +18,7 @@ const placeholder = (name: string): ComponentType<ScreenProps> =>
   };
 
 export const screens: Record<ScreenName, ComponentType<ScreenProps>> = {
-  'library.home': placeholder('library.home'),
+  'library.home': LibraryHome,
   'library.search': placeholder('library.search'),
   'library.folder': placeholder('library.folder'),
   'library.edit': placeholder('library.edit'),

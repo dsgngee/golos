@@ -1,4 +1,7 @@
 import { useEffect, useRef } from 'react';
+import { MiniPlayer } from '../features/player/MiniPlayer';
+import { usePlaybackClock } from '../features/player/usePlaybackClock';
+import { usePlayer } from '../store/player';
 import { Banner } from '../ui/Banner';
 import { TabBar } from '../ui/TabBar';
 import styles from './MainShell.module.css';
@@ -6,10 +9,12 @@ import { useNav } from './navigation';
 import { screens } from './screens';
 
 export function MainShell() {
+  usePlaybackClock();
   const tab = useNav((s) => s.tab);
   const stack = useNav((s) => s.stacks[s.tab]);
   const top = stack[stack.length - 1];
   const Screen = screens[top.name];
+  const miniVisible = usePlayer((s) => s.currentId !== null && !s.expanded);
 
   // Richtung der Animation: tiefer = Push von rechts, flacher = Pop von links.
   const prev = useRef({ tab, depth: stack.length });
@@ -20,10 +25,11 @@ export function MainShell() {
   });
 
   return (
-    <div className={styles.shell}>
+    <div className={`${styles.shell} ${miniVisible ? styles.withMini : ''}`}>
       <main key={`${tab}:${stack.length}:${top.name}`} className={`${styles.content} ${styles[direction]}`}>
         <Screen params={top.params} />
       </main>
+      <MiniPlayer />
       <TabBar />
       <Banner />
     </div>
