@@ -1,0 +1,40 @@
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  font-size: 16px;
+}
+
+.option:first-child {
+  border-top: none;
+}
+
+.option:active {
+  opacity: 0.6;
+}
+
+.option[aria-pressed='true'],
+.current {
+  font-weight: 600;
+}
+
+.current .time {
+  color: var(--accent-text);
+}
+
+.time {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-size);
+  color: var(--muted);
+  white-space: nowrap;
+}

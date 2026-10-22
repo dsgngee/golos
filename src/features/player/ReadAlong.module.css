@@ -1,0 +1,22 @@
+.text {
+  height: 236px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  mask-image: linear-gradient(transparent, black 14%, black 86%, transparent);
+}
+
+.current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.past,
+.future {
+  color: var(--muted);
+}

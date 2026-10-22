@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { FullPlayer } from '../features/player/FullPlayer';
 import { MiniPlayer } from '../features/player/MiniPlayer';
 import { usePlaybackClock } from '../features/player/usePlaybackClock';
 import { usePlayer } from '../store/player';
@@ -15,6 +16,7 @@ export function MainShell() {
   const top = stack[stack.length - 1];
   const Screen = screens[top.name];
   const miniVisible = usePlayer((s) => s.currentId !== null && !s.expanded);
+  const fullVisible = usePlayer((s) => s.currentId !== null && s.expanded && !s.nightMode);
 
   // Richtung der Animation: tiefer = Push von rechts, flacher = Pop von links.
   const prev = useRef({ tab, depth: stack.length });
@@ -31,6 +33,7 @@ export function MainShell() {
       </main>
       <MiniPlayer />
       <TabBar />
+      {fullVisible && <FullPlayer />}
       <Banner />
     </div>
   );
