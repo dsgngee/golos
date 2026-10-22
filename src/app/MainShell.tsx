@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useGenerationClock } from '../features/create/useGenerationClock';
 import { FullPlayer } from '../features/player/FullPlayer';
 import { MiniPlayer } from '../features/player/MiniPlayer';
 import { NightPlayer } from '../features/player/NightPlayer';
@@ -12,6 +13,7 @@ import { screens } from './screens';
 
 export function MainShell() {
   usePlaybackClock();
+  useGenerationClock();
   const tab = useNav((s) => s.tab);
   const stack = useNav((s) => s.stacks[s.tab]);
   const top = stack[stack.length - 1];

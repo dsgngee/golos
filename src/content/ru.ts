@@ -1,6 +1,20 @@
 // Alle UI-Texte des Prototyps. Komponenten enthalten keine russischen Literale.
-import type { RecordingType } from '../data/types';
-import { FORMS, plural } from '../i18n/format';
+import type { LanguageCode, ReadingStyle, RecordingType } from '../data/types';
+import { FORMS, countLabel, plural } from '../i18n/format';
+
+export const languageName: Record<LanguageCode, string> = {
+  ru: 'Русский',
+  en: 'Английский',
+  zh: 'Китайский',
+  es: 'Испанский',
+  de: 'Немецкий',
+};
+
+export const styleName: Record<ReadingStyle, string> = {
+  normal: 'Обычная',
+  expressive: 'Выразительная',
+  calm: 'Спокойная',
+};
 
 const seconds = (n: number) => `${n} ${plural(n, FORMS.second)}`;
 
@@ -56,6 +70,59 @@ export const t = {
     chapters: 'Главы',
     text: 'Текст',
     night: 'Ночной режим',
+  },
+  create: {
+    title: 'Озвучить',
+    subtitle: 'Что хотите послушать своим голосом?',
+    paste: 'Вставить текст',
+    pasteSub: 'Из буфера обмена или вручную',
+    pdf: 'Загрузить PDF',
+    pdfSub: 'Книги, статьи, документы',
+    pdfSheet: 'Выбрать файл',
+    link: 'Ссылка на статью',
+    linkSub: 'Мы извлечём текст со страницы',
+    linkField: 'Адрес страницы',
+    extract: 'Извлечь текст',
+    reviewTitle: 'Проверьте текст',
+    textLabel: 'Текст',
+    textPlaceholder: 'Вставьте или напишите текст…',
+    needText: 'Добавьте текст, чтобы продолжить',
+    next: 'Далее',
+    example: 'Вставить пример (прототип)',
+    chaptersFound: (n: number) => `Найдено ${countLabel(n, FORMS.chapter)}`,
+    stats: (words: number, estimate: string) => `${countLabel(words, FORMS.word)} · ${estimate}`,
+    optionsTitle: 'Параметры',
+    name: 'Название',
+    language: 'Язык озвучки',
+    translate: 'Перевести перед озвучкой',
+    translateTo: 'Перевести на',
+    style: 'Манера чтения',
+    calmHint: 'Для сказок и чтения перед сном',
+    submit: 'Озвучить',
+    setupFirst: 'Сначала настройте голос',
+    voiceMissing: 'Голос ещё не настроен — без него озвучить текст не получится.',
+    generatingTitle: 'Озвучиваем…',
+    remaining: (s: number) => `Осталось около ${s} сек`,
+    canLeave: 'Можно закрыть экран — мы сообщим, когда всё будет готово.',
+    toLibrary: 'В библиотеку',
+    doneTitle: 'Готово',
+    listen: 'Слушать',
+    readyBody: (title: string) => `«${title}» можно слушать`,
+    translatedMeta: (lang: string) => `Перевод с русского · ${lang}`,
+  },
+  tags: {
+    label: 'Теги',
+    add: 'Добавить',
+    placeholder: 'Новый тег',
+    remove: (tag: string) => `Удалить тег «${tag}»`,
+  },
+  folder: {
+    label: 'Папка',
+    none: 'Без папки',
+    new: 'Новая папка',
+    newName: 'Название папки',
+    create: 'Создать',
+    exists: 'Такая папка уже есть',
   },
   night: {
     timerOff: 'Таймер выключен',

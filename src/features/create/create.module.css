@@ -1,0 +1,240 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 20px 0;
+}
+
+.titleXL {
+  margin-top: 10px;
+  font-family: var(--type-title-x-l-family);
+  font-size: var(--type-title-x-l-size);
+  font-weight: var(--type-title-x-l-weight);
+  line-height: var(--type-title-x-l-lh);
+  letter-spacing: var(--type-title-x-l-ls);
+}
+
+.lead {
+  margin-top: -6px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid var(--ink);
+}
+
+.option {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.option:active {
+  opacity: 0.6;
+}
+
+.optionIcon {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--surface-inverse);
+  color: var(--on-inverse);
+}
+
+.optionText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.optionTitle {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.optionSub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+}
+
+.file {
+  min-height: 56px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+
+.file:first-child {
+  border-top: none;
+}
+
+.file:active {
+  opacity: 0.6;
+}
+
+.fileName {
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.fileMeta {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-size);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.sheetStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--accent-text);
+}
+
+.hintSmall {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.stats {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--type-label-size);
+  font-weight: 500;
+  letter-spacing: var(--type-label-ls);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chapterList {
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.row {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.row:active {
+  opacity: 0.6;
+}
+
+.rowLabel {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.rowValue {
+  flex: 1;
+  text-align: right;
+  font-size: 15px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.generating {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 0 12px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 24px;
+}
+
+.genTitle {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.percent {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.bar {
+  height: 2px;
+  background: var(--line);
+  border-radius: 1px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 250ms linear;
+}
